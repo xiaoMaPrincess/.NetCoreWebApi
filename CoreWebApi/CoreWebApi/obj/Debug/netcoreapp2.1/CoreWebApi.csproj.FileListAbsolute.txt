@@ -2,7 +2,6 @@ C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\b
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.runtimeconfig.json
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.runtimeconfig.dev.json
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.dll
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.RazorAssemblyInfo.cache
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.RazorAssemblyInfo.cs
@@ -12,3 +11,6 @@ C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\o
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.pdb
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.dll
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.pdb
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.xml
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.xml
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.csprojAssemblyReference.cache

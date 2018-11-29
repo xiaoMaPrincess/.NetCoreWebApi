@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +42,10 @@ namespace CoreWebApi
                     TermsOfService = "None",
                     Contact = new Contact { Name = "AllenJee", Email = "xiaomaprncess@gmail.com" }
                 });
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; //生成xml文件名
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);// 获取路径
+                x.IncludeXmlComments(xmlPath);// 启用xml注释
             });
             #endregion
         }

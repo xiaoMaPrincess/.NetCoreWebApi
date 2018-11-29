@@ -18,6 +18,11 @@ namespace CoreWebApi.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        /// <summary>
+        /// Get请求
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)

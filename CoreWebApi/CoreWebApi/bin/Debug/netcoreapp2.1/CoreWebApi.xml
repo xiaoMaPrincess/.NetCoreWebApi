@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CoreWebApi</name>
+    </assembly>
+    <members>
+        <member name="M:CoreWebApi.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Get请求
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
