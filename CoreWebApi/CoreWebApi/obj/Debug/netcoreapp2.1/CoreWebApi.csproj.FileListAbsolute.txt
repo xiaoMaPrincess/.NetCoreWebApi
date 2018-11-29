@@ -1,0 +1,14 @@
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.deps.json
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.runtimeconfig.json
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.runtimeconfig.dev.json
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.dll
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.RazorAssemblyInfo.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.RazorAssemblyInfo.cs
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\CoreWebApi.pdb
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.dll
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.pdb
