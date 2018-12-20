@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using CoreWebApi.AuthHelper.OverWrite;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace CoreWebApi
@@ -49,6 +52,12 @@ namespace CoreWebApi
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);// 获取路径
                 x.IncludeXmlComments(xmlPath, true);// 启用xml注释，第二个参数是控制器的注释，默认为false
 
+                // 获取应用程序根路径
+                var basePath =Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
+                // 获取Model层的xml文件
+                var xmlModelPath = Path.Combine(basePath, "Core.Model.xml");
+                // 启用Model层注释
+                x.IncludeXmlComments(xmlModelPath);
                 #region Token绑定到ConfigureServices
                 // 添加header验证信息
                 var security = new Dictionary<string, IEnumerable<string>> { { "Blog.Core", new string[] { } }, };
@@ -72,11 +81,35 @@ namespace CoreWebApi
                 var cache = new MemoryCache(new MemoryCacheOptions());
                 return cache;
             });
-            services.AddAuthorization(options =>
+            //services.AddAuthorization(options =>
+            //{
+            //    options.DefaultPolicy
+            //    //options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
+            //    //options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
+            //    //options.AddPolicy("AdminOrClient", policy => policy.RequireRole("Admin,Client").Build());
+            //});
+
+            // 添加认证
+            services.AddAuthentication(x =>
             {
-                options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
-                options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
-                options.AddPolicy("AdminOrClient", policy => policy.RequireRole("Admin,Client").Build());
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(o =>
+            {
+                o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuer = true,//是否验证Issuer
+                    ValidateAudience = true,//是否验证Audience 
+                    ValidateIssuerSigningKey = true,//是否验证IssuerSigningKey 
+                    ValidIssuer = "Blog.Core",
+                    ValidAudience = "wr",
+                    ValidateLifetime = true,//是否验证超时  当设置exp和nbf时有效 同时启用ClockSkew 
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(JwtHelper.secretKey)),
+                    //注意这是缓冲过期时间，总的有效时间等于这个时间加上jwt的过期时间，如果不配置，默认是5分钟
+                    ClockSkew = TimeSpan.FromSeconds(30)
+
+                };
             });
             #endregion
 
@@ -109,8 +142,13 @@ namespace CoreWebApi
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiHelp V1");
             });
             #endregion
+
             // 添加中间件
-            app.UseMiddleware<JwtTokenAuth>();
+            // app.UseMiddleware<JwtTokenAuth>();//  此方法已废弃
+            // 使用官方授权
+            app.UseAuthentication();
+            // 添加自定义中间件的第二种方式
+           // app.UseRequestCulture();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

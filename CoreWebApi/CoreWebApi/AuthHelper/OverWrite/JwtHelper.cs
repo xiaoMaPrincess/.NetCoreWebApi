@@ -1,12 +1,9 @@
 ﻿using Core.Model;
 using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CoreWebApi.AuthHelper.OverWrite
 {
@@ -22,11 +19,25 @@ namespace CoreWebApi.AuthHelper.OverWrite
         public static string IssueJWT(TokenModelJWT tokenModel)
         {
             var dateTime = DateTime.UtcNow;
+            //var claims = new Claim[]
+            //{
+            //    new Claim(JwtRegisteredClaimNames.Jti,tokenModel.Uid.ToString()),//Id
+            //    new Claim("Role", tokenModel.Role),//角色
+            //    new Claim(JwtRegisteredClaimNames.Iat,dateTime.ToString(),ClaimValueTypes.Integer64)
+            //};
+
             var claims = new Claim[]
             {
-                new Claim(JwtRegisteredClaimNames.Jti,tokenModel.Uid.ToString()),//Id
-                new Claim("Role", tokenModel.Role),//角色
-                new Claim(JwtRegisteredClaimNames.Iat,dateTime.ToString(),ClaimValueTypes.Integer64)
+                // Claim的默认配置
+                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
+                 new Claim(JwtRegisteredClaimNames.Iat, $"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}"),
+                new Claim(JwtRegisteredClaimNames.Nbf,$"{new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds()}") ,
+                // 设置JWT过期时间 100秒
+                new Claim(JwtRegisteredClaimNames.Exp,$"{new DateTimeOffset(DateTime.Now.AddSeconds(100)).ToUnixTimeSeconds()}"),
+                new Claim(JwtRegisteredClaimNames.Iss,"Blog.Core"),
+                new Claim(JwtRegisteredClaimNames.Aud,"wr"),
+                // 使用官方UseAuthentication授权要验证的Role
+                new Claim(ClaimTypes.Role,tokenModel.Role)
             };
             //秘钥
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtHelper.secretKey));

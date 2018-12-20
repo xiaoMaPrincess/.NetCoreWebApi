@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +30,8 @@ namespace CoreWebApi.AuthHelper.OverWrite
                 return _next(httpContext);
             }
 
-            // 获取token
-            var tokenHeader = httpContext.Request.Headers["Authorization"].ToString();
+            // 获取token 并去除Bearer
+            var tokenHeader = httpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ","");
 
             TokenModelJWT tm = JwtHelper.SerializeJWT(tokenHeader); // 序列化token，获取授权
 
@@ -45,4 +46,13 @@ namespace CoreWebApi.AuthHelper.OverWrite
             return _next(httpContext);
         }
     }
+
+    //public static class RequestCultureMiddlewareExtensions
+    //{
+    //    public static IApplicationBuilder UseRequestCulture(
+    //        this IApplicationBuilder builder)
+    //    {
+    //        return builder.UseMiddleware<JwtTokenAuth>();
+    //    }
+    //}
 }

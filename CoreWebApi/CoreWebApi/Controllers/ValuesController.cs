@@ -15,7 +15,7 @@ namespace CoreWebApi.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize(Policy ="Admin")]
+    [Authorize]
     public class ValuesController : ControllerBase
     {
         // GET api/values

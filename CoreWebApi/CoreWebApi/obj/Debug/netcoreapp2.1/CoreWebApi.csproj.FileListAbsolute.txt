@@ -17,3 +17,4 @@ C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\o
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\Core.Model.dll
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\Core.Model.pdb
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\obj\Debug\netcoreapp2.1\CoreWebApi.csproj.CopyComplete
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\bin\Debug\netcoreapp2.1\Core.Model.xml
