@@ -4,6 +4,63 @@
         <name>Core.Model</name>
     </assembly>
     <members>
+        <member name="T:Core.Model.MessageModel`1">
+            <summary>
+            通用返回信息类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Core.Model.MessageModel`1.Success">
+            <summary>
+            操作是否成功
+            </summary>
+        </member>
+        <member name="P:Core.Model.MessageModel`1.Msg">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="P:Core.Model.MessageModel`1.Data">
+            <summary>
+            返回数据集合
+            </summary>
+        </member>
+        <member name="T:Core.Model.TableModel`1">
+            <summary>
+            表格数据，支持分页
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Core.Model.TableModel`1.Code">
+            <summary>
+            返回编码
+            </summary>
+        </member>
+        <member name="P:Core.Model.TableModel`1.Msg">
+            <summary>
+            返回信息
+            </summary>
+        </member>
+        <member name="P:Core.Model.TableModel`1.Count">
+            <summary>
+            记录总数
+            </summary>
+        </member>
+        <member name="P:Core.Model.TableModel`1.Data">
+            <summary>
+            返回数据集
+            </summary>
+        </member>
+        <member name="T:Core.Model.Text">
+            <summary>
+            测试类
+            </summary>
+        </member>
+        <member name="P:Core.Model.Text.ID">
+            <summary>
+            用户标识
+            </summary>
+        </member>
         <member name="M:Core.Model.UtilConvert.ObjToInt(System.Object)">
             <summary>
             

@@ -81,13 +81,17 @@ namespace CoreWebApi
                 var cache = new MemoryCache(new MemoryCacheOptions());
                 return cache;
             });
-            //services.AddAuthorization(options =>
-            //{
-            //    options.DefaultPolicy
-            //    //options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
-            //    //options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
-            //    //options.AddPolicy("AdminOrClient", policy => policy.RequireRole("Admin,Client").Build());
-            //});
+
+            // 添加角色
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Client", policy => policy.RequireRole("Client").Build());
+                options.AddPolicy("Admin", policy => policy.RequireRole("Admin").Build());
+                // 并列（与）
+                //options.AddPolicy("AdminOrClient", policy => policy.RequireRole("Admin,Client").Build());
+                // 或
+                options.AddPolicy("SystemOrAdmin", policy => policy.RequireRole("Admin", "System"));
+            });
 
             // 添加认证
             services.AddAuthentication(x =>

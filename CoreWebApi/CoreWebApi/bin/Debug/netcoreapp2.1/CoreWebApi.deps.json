@@ -24,7 +24,9 @@
     ".NETCoreApp,Version=v2.1": {
       "CoreWebApi/1.0.0": {
         "dependencies": {
+          "Core.IServices": "1.0.0",
           "Core.Model": "1.0.0",
+          "Core.Services": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
@@ -581,12 +583,54 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "Core.IRepository/1.0.0": {
+        "runtime": {
+          "Core.IRepository.dll": {}
+        },
+        "compile": {
+          "Core.IRepository.dll": {}
+        }
+      },
+      "Core.IServices/1.0.0": {
+        "dependencies": {
+          "Core.IRepository": "1.0.0",
+          "Core.Repository": "1.0.0"
+        },
+        "runtime": {
+          "Core.IServices.dll": {}
+        },
+        "compile": {
+          "Core.IServices.dll": {}
+        }
+      },
       "Core.Model/1.0.0": {
         "runtime": {
           "Core.Model.dll": {}
         },
         "compile": {
           "Core.Model.dll": {}
+        }
+      },
+      "Core.Repository/1.0.0": {
+        "dependencies": {
+          "Core.IRepository": "1.0.0"
+        },
+        "runtime": {
+          "Core.Repository.dll": {}
+        },
+        "compile": {
+          "Core.Repository.dll": {}
+        }
+      },
+      "Core.Services/1.0.0": {
+        "dependencies": {
+          "Core.IServices": "1.0.0"
+        },
+        "runtime": {
+          "Core.Services.dll": {}
+        },
+        "compile": {
+          "Core.Services.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -3747,7 +3791,27 @@
       "path": "system.linq.parallel/4.3.0",
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
+    "Core.IRepository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.IServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Core.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

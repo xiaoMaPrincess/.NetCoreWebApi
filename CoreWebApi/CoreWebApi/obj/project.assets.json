@@ -4673,6 +4673,30 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Core.IRepository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Core.IRepository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.IRepository.dll": {}
+        }
+      },
+      "Core.IServices/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Core.IRepository": "1.0.0",
+          "Core.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Core.IServices.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.IServices.dll": {}
+        }
+      },
       "Core.Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -4681,6 +4705,32 @@
         },
         "runtime": {
           "bin/placeholder/Core.Model.dll": {}
+        }
+      },
+      "Core.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Core.IRepository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Core.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.Repository.dll": {}
+        }
+      },
+      "Core.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Core.IServices": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Core.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.Services.dll": {}
         }
       }
     }
@@ -12618,15 +12668,37 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Core.IRepository/1.0.0": {
+      "type": "project",
+      "path": "../Core.IRepository/Core.IRepository.csproj",
+      "msbuildProject": "../Core.IRepository/Core.IRepository.csproj"
+    },
+    "Core.IServices/1.0.0": {
+      "type": "project",
+      "path": "../Core.IServices/Core.IServices.csproj",
+      "msbuildProject": "../Core.IServices/Core.IServices.csproj"
+    },
     "Core.Model/1.0.0": {
       "type": "project",
       "path": "../Core.Model/Core.Model.csproj",
       "msbuildProject": "../Core.Model/Core.Model.csproj"
+    },
+    "Core.Repository/1.0.0": {
+      "type": "project",
+      "path": "../Core.Repository/Core.Repository.csproj",
+      "msbuildProject": "../Core.Repository/Core.Repository.csproj"
+    },
+    "Core.Services/1.0.0": {
+      "type": "project",
+      "path": "../Core.Services/Core.Services.csproj",
+      "msbuildProject": "../Core.Services/Core.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Core.IServices >= 1.0.0",
       "Core.Model >= 1.0.0",
+      "Core.Services >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -12665,8 +12737,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj"
+            },
             "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj": {
               "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj"
+            },
+            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\Core.Services.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\Core.Services.csproj"
             }
           }
         }

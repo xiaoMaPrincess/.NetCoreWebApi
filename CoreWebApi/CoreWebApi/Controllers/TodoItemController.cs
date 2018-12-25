@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreWebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,8 @@ namespace CoreWebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [Authorize(Roles ="Admin,Client")]
+    [Authorize(Policy ="SystemOrAdmin")]
     public class TodoItemController : ControllerBase
     {
         /// <summary>

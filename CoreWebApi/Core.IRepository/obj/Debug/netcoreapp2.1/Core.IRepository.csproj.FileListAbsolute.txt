@@ -1,0 +1,9 @@
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.IRepository.deps.json
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.IRepository.dll
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.IRepository.pdb
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.AssemblyInfoInputs.cache
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.AssemblyInfo.cs
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.dll
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.pdb
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.csprojAssemblyReference.cache

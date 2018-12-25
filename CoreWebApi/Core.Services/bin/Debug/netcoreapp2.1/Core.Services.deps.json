@@ -1,0 +1,63 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "Core.Services/1.0.0": {
+        "dependencies": {
+          "Core.IServices": "1.0.0"
+        },
+        "runtime": {
+          "Core.Services.dll": {}
+        }
+      },
+      "Core.IRepository/1.0.0": {
+        "runtime": {
+          "Core.IRepository.dll": {}
+        }
+      },
+      "Core.IServices/1.0.0": {
+        "dependencies": {
+          "Core.IRepository": "1.0.0",
+          "Core.Repository": "1.0.0"
+        },
+        "runtime": {
+          "Core.IServices.dll": {}
+        }
+      },
+      "Core.Repository/1.0.0": {
+        "dependencies": {
+          "Core.IRepository": "1.0.0"
+        },
+        "runtime": {
+          "Core.Repository.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Core.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.IRepository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.IServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Repository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
