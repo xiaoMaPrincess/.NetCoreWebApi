@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.IServices;
+using Core.Model.Models;
 using Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +14,7 @@ namespace CoreWebApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Policy ="Admin")]
+    //[Authorize(Policy ="Admin")]
     public class BlogController : ControllerBase
     {
         // GET: api/Blog
@@ -30,11 +31,17 @@ namespace CoreWebApi.Controllers
             return advertisementServices.Sum(i, j);
         }
 
+        /// <summary>
+        /// 测试用
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Blog/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public List<Advertisement> Get(int id)
         {
-            return "value";
+            IAdvertisementServices advertisementServices = new AdvertisementServices();
+            return advertisementServices.Query(d => d.Id == id);
         }
 
         // POST: api/Blog

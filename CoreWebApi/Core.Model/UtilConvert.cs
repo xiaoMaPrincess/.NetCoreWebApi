@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Core.Model
 {
+    /// <summary>
+    /// 数据类型转换
+    /// </summary>
     public static class UtilConvert
     {
         /// <summary>

@@ -25,6 +25,41 @@
             返回数据集合
             </summary>
         </member>
+        <member name="T:Core.Model.Models.Advertisement">
+            <summary>
+            广告
+            </summary>
+        </member>
+        <member name="P:Core.Model.Models.Advertisement.Id">
+            <summary>
+            分类ID
+            </summary>
+        </member>
+        <member name="P:Core.Model.Models.Advertisement.CreateDate">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Core.Model.Models.Advertisement.ImgUrl">
+            <summary>
+            广告图片
+            </summary>
+        </member>
+        <member name="P:Core.Model.Models.Advertisement.Title">
+            <summary>
+            广告标题
+            </summary>
+        </member>
+        <member name="P:Core.Model.Models.Advertisement.Url">
+            <summary>
+            广告链接
+            </summary>
+        </member>
+        <member name="P:Core.Model.Models.Advertisement.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
         <member name="T:Core.Model.TableModel`1">
             <summary>
             表格数据，支持分页
@@ -59,6 +94,11 @@
         <member name="P:Core.Model.Text.ID">
             <summary>
             用户标识
+            </summary>
+        </member>
+        <member name="T:Core.Model.UtilConvert">
+            <summary>
+            数据类型转换
             </summary>
         </member>
         <member name="M:Core.Model.UtilConvert.ObjToInt(System.Object)">

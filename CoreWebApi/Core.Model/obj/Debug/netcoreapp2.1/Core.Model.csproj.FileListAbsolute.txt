@@ -1,3 +1,4 @@
+C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\bin\Debug\netcoreapp2.1\Core.Model.xml
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\bin\Debug\netcoreapp2.1\Core.Model.deps.json
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\bin\Debug\netcoreapp2.1\Core.Model.dll
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\bin\Debug\netcoreapp2.1\Core.Model.pdb
@@ -6,5 +7,4 @@ C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\o
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\obj\Debug\netcoreapp2.1\Core.Model.AssemblyInfo.cs
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\obj\Debug\netcoreapp2.1\Core.Model.dll
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\obj\Debug\netcoreapp2.1\Core.Model.pdb
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\bin\Debug\netcoreapp2.1\Core.Model.xml
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Model\obj\Debug\netcoreapp2.1\Core.Model.csprojAssemblyReference.cache

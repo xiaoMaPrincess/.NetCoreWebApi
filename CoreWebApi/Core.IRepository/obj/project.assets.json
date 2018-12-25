@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Core.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Core.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.Model.dll": {}
+        }
       }
     }
   },
@@ -680,10 +690,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Core.Model/1.0.0": {
+      "type": "project",
+      "path": "../Core.Model/Core.Model.csproj",
+      "msbuildProject": "../Core.Model/Core.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Core.Model >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -717,7 +733,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

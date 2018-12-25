@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "Core.IRepository/1.0.0": {
+        "dependencies": {
+          "Core.Model": "1.0.0"
+        },
         "runtime": {
           "Core.IRepository.dll": {}
+        }
+      },
+      "Core.Model/1.0.0": {
+        "runtime": {
+          "Core.Model.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Core.IRepository/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Core.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
