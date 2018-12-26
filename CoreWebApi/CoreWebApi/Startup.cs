@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Repository.Sugar;
 using CoreWebApi.AuthHelper.OverWrite;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -116,6 +117,9 @@ namespace CoreWebApi
                 };
             });
             #endregion
+
+            // 数据库连接字符串
+            BaseDBConfig.ConnectionString = Configuration.GetSection("ConnectionString:Value").Value;
 
 
         }

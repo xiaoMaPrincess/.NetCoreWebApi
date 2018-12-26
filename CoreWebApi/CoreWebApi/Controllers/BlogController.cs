@@ -38,10 +38,10 @@ namespace CoreWebApi.Controllers
         /// <returns></returns>
         // GET: api/Blog/5
         [HttpGet("{id}", Name = "Get")]
-        public List<Advertisement> Get(int id)
+        public async Task<List<Advertisement>> Get(int id)
         {
             IAdvertisementServices advertisementServices = new AdvertisementServices();
-            return advertisementServices.Query(d => d.Id == id);
+            return await advertisementServices.Query(d => d.Id == id);
         }
 
         // POST: api/Blog

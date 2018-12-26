@@ -9,6 +9,6 @@ namespace Core.Repository.Sugar
         /// <summary>
         /// 连接字符串
         /// </summary>
-        public static string ConnectionString = "server=.;uid=sa;pwd=sasa;database=CoreWebApiDb";
+        public static string ConnectionString { get; set; }
     }
 }
