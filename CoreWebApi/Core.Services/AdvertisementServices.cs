@@ -1,7 +1,6 @@
 ﻿using Core.IRepository;
 using Core.IServices;
 using Core.Model.Models;
-using Core.Repository;
 using Core.Services.BASE;
 using System;
 using System.Collections.Generic;
@@ -12,9 +11,16 @@ namespace Core.Services
 {
     public class AdvertisementServices : BaseServices<Advertisement>, IAdvertisementServices
     {
+        IAdvertisementRepository dal;
+        // 构造函数注入
+        public AdvertisementServices(IAdvertisementRepository dal)
+        {
+            this.dal = dal;
+            base.baseDal = dal;
+        }
         public int Sum(int i, int j)
         {
-            throw new NotImplementedException();
+            return dal.Sum(i, j);
         }
     }
 }

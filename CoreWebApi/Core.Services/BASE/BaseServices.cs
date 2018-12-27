@@ -1,6 +1,5 @@
 ﻿using Core.IRepository.BASE;
 using Core.IServices.BASE;
-using Core.Repository.BASE;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -11,7 +10,9 @@ namespace Core.Services.BASE
 {
     public class BaseServices<TEntity> : IBaseServices<TEntity> where TEntity : class, new()
     {
-        public IBaseRepository<TEntity> baseDal = new BaseRepository<TEntity>();
+
+        // public IBaseRepository<TEntity> baseDal = new BaseRepository<TEntity>();
+        public IBaseRepository<TEntity> baseDal;// 在子类的构造函数中注入。
 
         /// <summary>
         /// 根据ID查询记录

@@ -4,8 +4,13 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\CoreWebApi\bin\Debug\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Core.IServices\Core.IServices.csproj" />
+    <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
   </ItemGroup>
 
 </Project>

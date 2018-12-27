@@ -2,6 +2,67 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "Autofac/4.6.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0",
+          "System.ComponentModel": "4.0.1"
+        },
+        "compile": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.1/Autofac.dll": {}
+        }
+      },
+      "Autofac.Extensions.DependencyInjection/4.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.6.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll": {}
+        }
+      },
+      "Autofac.Extras.DynamicProxy/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "Autofac": "4.0.1",
+          "Castle.Core": "4.3.1",
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.3/Autofac.Extras.DynamicProxy.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/Autofac.Extras.DynamicProxy.dll": {}
+        }
+      },
+      "Castle.Core/4.3.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.TraceSource": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Xml.XmlDocument": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.5/Castle.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.5/Castle.Core.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -5317,8 +5378,7 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "Core.IRepository": "1.0.0",
-          "Core.Model": "1.0.0",
-          "Core.Repository": "1.0.0"
+          "Core.Model": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Core.IServices.dll": {}
@@ -5336,37 +5396,80 @@
         "runtime": {
           "bin/placeholder/Core.Model.dll": {}
         }
-      },
-      "Core.Repository/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Core.IRepository": "1.0.0",
-          "sqlSugarCore": "4.9.7.2"
-        },
-        "compile": {
-          "bin/placeholder/Core.Repository.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Repository.dll": {}
-        }
-      },
-      "Core.Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Core.IServices": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Core.Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Services.dll": {}
-        }
       }
     }
   },
   "libraries": {
+    "Autofac/4.6.1": {
+      "sha512": "ADsWCJaUM0YrNBMfxBxf8DiWJzw45L0ckolDGKZVG/+DHH6wYGR5IPSfBpfNNwYZH4a6nZ0RyzI1Hv3NPrAmcA==",
+      "type": "package",
+      "path": "autofac/4.6.1",
+      "files": [
+        ".signature.p7s",
+        "autofac.4.6.1.nupkg.sha512",
+        "autofac.nuspec",
+        "lib/net45/Autofac.dll",
+        "lib/net45/Autofac.xml",
+        "lib/netstandard1.1/Autofac.dll",
+        "lib/netstandard1.1/Autofac.xml"
+      ]
+    },
+    "Autofac.Extensions.DependencyInjection/4.3.1": {
+      "sha512": "vWa3PzmRA7m+Az5oqfu7tKDdMnS8wkVvYX04640y177gBWrP74gEzJ9rbqtRzVO0IPAxHAKvHS6LBSaDR66u8Q==",
+      "type": "package",
+      "path": "autofac.extensions.dependencyinjection/4.3.1",
+      "files": [
+        ".signature.p7s",
+        "autofac.extensions.dependencyinjection.4.3.1.nupkg.sha512",
+        "autofac.extensions.dependencyinjection.nuspec",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard1.1/Autofac.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.pdb",
+        "lib/netstandard2.0/Autofac.Extensions.DependencyInjection.xml"
+      ]
+    },
+    "Autofac.Extras.DynamicProxy/4.5.0": {
+      "sha512": "IBSqDGFKX9DCrgFS7sQE0OziEVZppl5SLKfJ5bZk/dDTkAcpqGyQ+hJiV8dr85eI+FnPHplI91T+4dgAnpTfeg==",
+      "type": "package",
+      "path": "autofac.extras.dynamicproxy/4.5.0",
+      "files": [
+        ".signature.p7s",
+        "autofac.extras.dynamicproxy.4.5.0.nupkg.sha512",
+        "autofac.extras.dynamicproxy.nuspec",
+        "lib/net45/Autofac.Extras.DynamicProxy.dll",
+        "lib/net45/Autofac.Extras.DynamicProxy.pdb",
+        "lib/net45/Autofac.Extras.DynamicProxy.xml",
+        "lib/netstandard1.3/Autofac.Extras.DynamicProxy.dll",
+        "lib/netstandard1.3/Autofac.Extras.DynamicProxy.pdb",
+        "lib/netstandard1.3/Autofac.Extras.DynamicProxy.xml"
+      ]
+    },
+    "Castle.Core/4.3.1": {
+      "sha512": "Dx90A7xzdyYiaq1aMn3QmblpFAaVhDCiZkSblt96pf8QopOjLxCcs5ufKJA1zyg2L+Hxjnzx3JNrmfK8ZMRHvA==",
+      "type": "package",
+      "path": "castle.core/4.3.1",
+      "files": [
+        ".signature.p7s",
+        "ASL - Apache Software Foundation License.txt",
+        "CHANGELOG.md",
+        "LICENSE",
+        "castle.core.4.3.1.nupkg.sha512",
+        "castle.core.nuspec",
+        "lib/net35/Castle.Core.dll",
+        "lib/net35/Castle.Core.xml",
+        "lib/net40/Castle.Core.dll",
+        "lib/net40/Castle.Core.xml",
+        "lib/net45/Castle.Core.dll",
+        "lib/net45/Castle.Core.xml",
+        "lib/netstandard1.3/Castle.Core.dll",
+        "lib/netstandard1.3/Castle.Core.xml",
+        "lib/netstandard1.5/Castle.Core.dll",
+        "lib/netstandard1.5/Castle.Core.xml",
+        "readme.txt"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "AIgEc1up4pvH8kXy+eG1x4Qfqd6piAq3yk11pveCQXWNkkYoiKdflSmcJZuWcerdMcAaoF0xC/mWGoTW4vF4Dg==",
       "type": "package",
@@ -14304,28 +14407,21 @@
       "type": "project",
       "path": "../Core.Model/Core.Model.csproj",
       "msbuildProject": "../Core.Model/Core.Model.csproj"
-    },
-    "Core.Repository/1.0.0": {
-      "type": "project",
-      "path": "../Core.Repository/Core.Repository.csproj",
-      "msbuildProject": "../Core.Repository/Core.Repository.csproj"
-    },
-    "Core.Services/1.0.0": {
-      "type": "project",
-      "path": "../Core.Services/Core.Services.csproj",
-      "msbuildProject": "../Core.Services/Core.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Autofac.Extensions.DependencyInjection >= 4.3.1",
+      "Autofac.Extras.DynamicProxy >= 4.5.0",
+      "Core.IRepository >= 1.0.0",
       "Core.IServices >= 1.0.0",
       "Core.Model >= 1.0.0",
-      "Core.Services >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.1",
-      "Swashbuckle.AspNetCore >= 4.0.1"
+      "Swashbuckle.AspNetCore >= 4.0.1",
+      "sqlSugarCore >= 4.9.7.2"
     ]
   },
   "packageFolders": {
@@ -14359,14 +14455,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj"
+            },
             "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj": {
               "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj"
             },
             "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj": {
               "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj"
-            },
-            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\Core.Services.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\Core.Services.csproj"
             }
           }
         }
@@ -14380,6 +14476,14 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Autofac.Extensions.DependencyInjection": {
+            "target": "Package",
+            "version": "[4.3.1, )"
+          },
+          "Autofac.Extras.DynamicProxy": {
+            "target": "Package",
+            "version": "[4.5.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -14403,6 +14507,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[4.0.1, )"
+          },
+          "sqlSugarCore": {
+            "target": "Package",
+            "version": "[4.9.7.2, )"
           }
         },
         "imports": [

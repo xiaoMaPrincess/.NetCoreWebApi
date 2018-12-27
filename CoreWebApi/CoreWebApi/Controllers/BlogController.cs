@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.IServices;
 using Core.Model.Models;
-using Core.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,6 +16,11 @@ namespace CoreWebApi.Controllers
     //[Authorize(Policy ="Admin")]
     public class BlogController : ControllerBase
     {
+        private readonly IAdvertisementServices _advertisementServices;
+        public BlogController(IAdvertisementServices advertisementServices)
+        {
+            _advertisementServices = advertisementServices;
+        }
         // GET: api/Blog
         /// <summary>
         /// Sum接口
@@ -27,8 +31,7 @@ namespace CoreWebApi.Controllers
         [HttpGet]
         public int Get(int i,int j)
         {
-            IAdvertisementServices advertisementServices = new AdvertisementServices();
-            return advertisementServices.Sum(i, j);
+            return _advertisementServices.Sum(i, j);
         }
 
         /// <summary>
@@ -40,8 +43,7 @@ namespace CoreWebApi.Controllers
         [HttpGet("{id}", Name = "Get")]
         public async Task<List<Advertisement>> Get(int id)
         {
-            IAdvertisementServices advertisementServices = new AdvertisementServices();
-            return await advertisementServices.Query(d => d.Id == id);
+            return await _advertisementServices.Query(d => d.Id == id);
         }
 
         // POST: api/Blog

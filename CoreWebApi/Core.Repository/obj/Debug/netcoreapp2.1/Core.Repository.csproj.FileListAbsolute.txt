@@ -1,7 +1,3 @@
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.csprojAssemblyReference.cache
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.csproj.CoreCompileInputs.cache
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.AssemblyInfoInputs.cache
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.AssemblyInfo.cs
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\bin\Debug\netcoreapp2.1\Core.Repository.deps.json
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\bin\Debug\netcoreapp2.1\Core.Repository.dll
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\bin\Debug\netcoreapp2.1\Core.Repository.pdb
@@ -10,6 +6,3 @@ C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Reposit
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\bin\Debug\netcoreapp2.1\Core.IRepository.pdb
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\bin\Debug\netcoreapp2.1\Core.Model.pdb
 C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\bin\Debug\netcoreapp2.1\Core.Model.xml
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.csproj.CopyComplete
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.dll
-C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\obj\Debug\netcoreapp2.1\Core.Repository.pdb

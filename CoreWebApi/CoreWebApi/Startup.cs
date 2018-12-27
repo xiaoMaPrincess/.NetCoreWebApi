@@ -5,7 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Core.Repository.Sugar;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Core.IServices;
 using CoreWebApi.AuthHelper.OverWrite;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -32,7 +34,7 @@ namespace CoreWebApi
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -119,7 +121,34 @@ namespace CoreWebApi
             #endregion
 
             // 数据库连接字符串
-            BaseDBConfig.ConnectionString = Configuration.GetSection("ConnectionString:Value").Value;
+            //BaseDBConfig.ConnectionString = Configuration.GetSection("ConnectionString:Value").Value;
+
+            #region AutoFac
+            // 实例化AutoFac容器
+            var builder = new ContainerBuilder();
+            // 注册 单个注册
+            //builder.RegisterType<AdvertisementServices>().As<IAdvertisementServices>();
+
+            // 获取项目路径
+            var pathBase = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
+            var servicesDllFile = Path.Combine(pathBase, "Core.Services.dll");// 获取注入项目绝对路径
+            // 加载程序集，这里为实现层
+            //var assemblysServices = Assembly.Load("Core.Services");
+            var assemblysServices = Assembly.LoadFile(servicesDllFile);// 使用加载文件的方法加载程序集
+            // 指定已加载程序集中的类型，并注册其所实现的接口
+            builder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces();
+
+            var repositoryDLLFile = Path.Combine(pathBase, "Core.Repository.dll");
+            var assemblysRepository = Assembly.LoadFile(repositoryDLLFile);
+            builder.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces();
+
+            // 将services 填充AutoFac容器生成器，使原来ConfigureServices中的服务可用。可以理解为使用Auto接管原来的ConfigureServices
+            builder.Populate(services);
+            //使用以注册的组件登记穿件新容器
+            var applicationContainer= builder.Build();
+            #endregion
+            // 第三方IOC接管
+            return new AutofacServiceProvider(applicationContainer);
 
 
         }
