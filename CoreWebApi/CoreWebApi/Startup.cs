@@ -7,7 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Autofac.Extras.DynamicProxy;
 using Core.IServices;
+using CoreWebApi.AOP;
 using CoreWebApi.AuthHelper.OverWrite;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -126,8 +128,11 @@ namespace CoreWebApi
             #region AutoFac
             // 实例化AutoFac容器
             var builder = new ContainerBuilder();
+            // 注册拦截器
+            builder.RegisterType<CoreLogAOP>();
+
             // 注册 单个注册
-            //builder.RegisterType<AdvertisementServices>().As<IAdvertisementServices>();
+           // builder.RegisterType<AdvertisementServices>().As<IAdvertisementServices>();
 
             // 获取项目路径
             var pathBase = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
@@ -136,7 +141,10 @@ namespace CoreWebApi
             //var assemblysServices = Assembly.Load("Core.Services");
             var assemblysServices = Assembly.LoadFile(servicesDllFile);// 使用加载文件的方法加载程序集
             // 指定已加载程序集中的类型，并注册其所实现的接口
-            builder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces().
+                InstancePerLifetimeScope().
+                EnableInterfaceInterceptors(). //添加拦截器到接口或类之上
+                InterceptedBy(typeof(CoreLogAOP)); //将服务分配
 
             var repositoryDLLFile = Path.Combine(pathBase, "Core.Repository.dll");
             var assemblysRepository = Assembly.LoadFile(repositoryDLLFile);

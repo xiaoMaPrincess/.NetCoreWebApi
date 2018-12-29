@@ -11,16 +11,29 @@ using Microsoft.AspNetCore.Mvc;
 namespace CoreWebApi.Controllers
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     //[Authorize(Policy ="Admin")]
     public class BlogController : ControllerBase
     {
         private readonly IAdvertisementServices _advertisementServices;
-        public BlogController(IAdvertisementServices advertisementServices)
+        private readonly IBlogArticleServices _blogArticleServices;
+        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices)
         {
             _advertisementServices = advertisementServices;
+            _blogArticleServices = blogArticleServices;
         }
+
+        /// <summary>
+        /// 获取博客列表
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<List<BlogArticle>> GetBlogs()
+        {
+            return await _blogArticleServices.GetBlogs();
+        }
+
         // GET: api/Blog
         /// <summary>
         /// Sum接口
