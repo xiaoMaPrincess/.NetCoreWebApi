@@ -39,6 +39,8 @@ namespace CoreWebApi
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // 注入缓存
+            services.AddScoped<ICaching, MemoryCaching>();
 
             #region 注册Swagger服务
             services.AddSwaggerGen(x =>
