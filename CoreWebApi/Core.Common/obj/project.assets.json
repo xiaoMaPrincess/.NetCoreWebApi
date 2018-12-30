@@ -207,53 +207,6 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
-      },
-      "Core.Common/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Core.Common.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Common.dll": {}
-        }
-      },
-      "Core.IRepository/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Core.Model": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Core.IRepository.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.IRepository.dll": {}
-        }
-      },
-      "Core.IServices/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Core.IRepository": "1.0.0",
-          "Core.Model": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Core.IServices.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.IServices.dll": {}
-        }
-      },
-      "Core.Model/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Core.Model.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Core.Model.dll": {}
-        }
       }
     }
   },
@@ -727,33 +680,10 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
-    },
-    "Core.Common/1.0.0": {
-      "type": "project",
-      "path": "../Core.Common/Core.Common.csproj",
-      "msbuildProject": "../Core.Common/Core.Common.csproj"
-    },
-    "Core.IRepository/1.0.0": {
-      "type": "project",
-      "path": "../Core.IRepository/Core.IRepository.csproj",
-      "msbuildProject": "../Core.IRepository/Core.IRepository.csproj"
-    },
-    "Core.IServices/1.0.0": {
-      "type": "project",
-      "path": "../Core.IServices/Core.IServices.csproj",
-      "msbuildProject": "../Core.IServices/Core.IServices.csproj"
-    },
-    "Core.Model/1.0.0": {
-      "type": "project",
-      "path": "../Core.Model/Core.Model.csproj",
-      "msbuildProject": "../Core.Model/Core.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Core.Common >= 1.0.0",
-      "Core.IServices >= 1.0.0",
-      "Core.Model >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -764,11 +694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\Core.Services.csproj",
-      "projectName": "Core.Services",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\Core.Services.csproj",
+      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\Core.Common.csproj",
+      "projectName": "Core.Common",
+      "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\Core.Common.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Services\\obj\\",
+      "outputPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -787,17 +717,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {
-            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\Core.Common.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\Core.Common.csproj"
-            },
-            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj"
-            },
-            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

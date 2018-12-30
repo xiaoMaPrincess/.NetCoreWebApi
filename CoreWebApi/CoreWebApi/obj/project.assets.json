@@ -5360,6 +5360,16 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Core.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Core.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.Common.dll": {}
+        }
+      },
       "Core.IRepository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -14393,6 +14403,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "Core.Common/1.0.0": {
+      "type": "project",
+      "path": "../Core.Common/Core.Common.csproj",
+      "msbuildProject": "../Core.Common/Core.Common.csproj"
+    },
     "Core.IRepository/1.0.0": {
       "type": "project",
       "path": "../Core.IRepository/Core.IRepository.csproj",
@@ -14413,6 +14428,7 @@
     ".NETCoreApp,Version=v2.1": [
       "Autofac.Extensions.DependencyInjection >= 4.3.1",
       "Autofac.Extras.DynamicProxy >= 4.5.0",
+      "Core.Common >= 1.0.0",
       "Core.IRepository >= 1.0.0",
       "Core.IServices >= 1.0.0",
       "Core.Model >= 1.0.0",
@@ -14455,6 +14471,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\Core.Common.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Common\\Core.Common.csproj"
+            },
             "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj": {
               "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj"
             },

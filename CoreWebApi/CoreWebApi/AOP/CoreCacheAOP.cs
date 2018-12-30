@@ -1,4 +1,5 @@
 ﻿using Castle.DynamicProxy;
+using Core.Common.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,23 +23,33 @@ namespace CoreWebApi.AOP
         /// <param name="invocation"></param>
         public void Intercept(IInvocation invocation)
         {
-            // 获取自定缓存键
-            var cacheKey = CustomCacheKey(invocation);
 
-            var cacheValue = _cache.Get(cacheKey);
-            if (cacheValue != null)
+            var method = invocation.MethodInvocationTarget ?? invocation.Method;
+            // 对当前方法的特性验证
+            if (method.GetCustomAttributes(true).FirstOrDefault(x => x.GetType() == typeof(CachingAttribute)) is CachingAttribute qCachingAttribute)
             {
-                // 获取当前的缓存值，并作为返回值返回
-                invocation.ReturnValue = cacheValue;
-                return;
+                // 获取自定缓存键
+                var cacheKey = CustomCacheKey(invocation);
+
+                var cacheValue = _cache.Get(cacheKey);
+                if (cacheValue != null)
+                {
+                    // 获取当前的缓存值，并作为返回值返回
+                    invocation.ReturnValue = cacheValue;
+                    return;
+                }
+                // 继续执行当前请求
+                invocation.Proceed();
+
+                // 存入缓存
+                if (string.IsNullOrWhiteSpace(cacheKey))
+                {
+                    _cache.Set(cacheKey, invocation.ReturnValue);
+                }
             }
-            // 继续执行当前请求
-            invocation.Proceed();
-
-            // 存入缓存
-            if (string.IsNullOrWhiteSpace(cacheKey))
+            else
             {
-                _cache.Set(cacheKey, invocation.ReturnValue);
+                invocation.Proceed();
             }
 
 
@@ -70,11 +81,11 @@ namespace CoreWebApi.AOP
         /// <returns></returns>
         private string GetArgumentValue(object arg)
         {
-            if(arg is int||arg is long ||arg is string)
+            if (arg is int || arg is long || arg is string)
             {
                 return arg.ToString();
             }
-            if(arg is DateTime)
+            if (arg is DateTime)
             {
                 return ((DateTime)arg).ToString("yyyy-MM-DD HH:mm:ss");
             }

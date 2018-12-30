@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Common.Attributes;
 using Core.IServices;
 using Core.Model.Models;
 using Microsoft.AspNetCore.Authorization;
