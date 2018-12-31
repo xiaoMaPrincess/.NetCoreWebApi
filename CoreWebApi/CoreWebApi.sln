@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreWebApi", "CoreWebApi\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Model", "Core.Model\Core.Model.csproj", "{E1E8C3EE-3769-4844-8163-E4B0A8B6B427}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.IRepository", "Core.IRepository\Core.IRepository.csproj", "{E8E44F38-BE8E-4F2D-ADD4-DFBA8CF74546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IRepository", "Core.IRepository\Core.IRepository.csproj", "{E8E44F38-BE8E-4F2D-ADD4-DFBA8CF74546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Repository", "Core.Repository\Core.Repository.csproj", "{3B8B3ACE-E41F-4A07-AA9C-EE04F2857016}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Repository", "Core.Repository\Core.Repository.csproj", "{3B8B3ACE-E41F-4A07-AA9C-EE04F2857016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.IServices", "Core.IServices\Core.IServices.csproj", "{D41A2D10-ECFE-4615-851D-AD2A3CF5209B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IServices", "Core.IServices\Core.IServices.csproj", "{D41A2D10-ECFE-4615-851D-AD2A3CF5209B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Services", "Core.Services\Core.Services.csproj", "{6D968205-C23E-4042-9DF5-A2EAD4462029}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Services", "Core.Services\Core.Services.csproj", "{6D968205-C23E-4042-9DF5-A2EAD4462029}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Common", "Core.Common\Core.Common.csproj", "{97E07083-E52E-4DF0-835E-88604A2D33AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6D968205-C23E-4042-9DF5-A2EAD4462029}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D968205-C23E-4042-9DF5-A2EAD4462029}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D968205-C23E-4042-9DF5-A2EAD4462029}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

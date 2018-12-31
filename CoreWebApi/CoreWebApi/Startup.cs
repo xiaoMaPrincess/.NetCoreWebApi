@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
+using Core.Common.Redis;
 using Core.IServices;
 using CoreWebApi.AOP;
 using CoreWebApi.AuthHelper.OverWrite;
@@ -41,6 +42,8 @@ namespace CoreWebApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // 注入缓存
             services.AddScoped<ICaching, MemoryCaching>();
+            // Redis接口注入
+            services.AddScoped<IRedisCacheManager, RedisCacheManager>();
 
             #region 注册Swagger服务
             services.AddSwaggerGen(x =>

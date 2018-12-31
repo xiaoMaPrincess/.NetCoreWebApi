@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Common.Attributes;
+using Core.Common.Helper;
+using Core.Common.Redis;
 using Core.IServices;
 using Core.Model.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -19,10 +21,12 @@ namespace CoreWebApi.Controllers
     {
         private readonly IAdvertisementServices _advertisementServices;
         private readonly IBlogArticleServices _blogArticleServices;
-        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices)
+        private readonly IRedisCacheManager _redisCacheManager;
+        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices,IRedisCacheManager redisCacheManager)
         {
             _advertisementServices = advertisementServices;
             _blogArticleServices = blogArticleServices;
+            _redisCacheManager = redisCacheManager;
         }
 
         /// <summary>
@@ -32,7 +36,18 @@ namespace CoreWebApi.Controllers
         [HttpGet]
         public async Task<List<BlogArticle>> GetBlogs()
         {
-            return await _blogArticleServices.GetBlogs();
+            var connect = AppsettingsHelper.app(new string[] { "AppSettings", "RedisCaching", "ConnectionString" });
+            List<BlogArticle> blogArticles = new List<BlogArticle>();
+            if (_redisCacheManager.Get<object>("Redis.Blog") != null)
+            {
+                blogArticles = _redisCacheManager.Get<List<BlogArticle>>("Redis.Blog");
+            }
+            else
+            {
+                blogArticles = await _blogArticleServices.GetBlogs();
+                _redisCacheManager.Set("Redis.Blog", blogArticles, TimeSpan.FromHours(2));
+            }
+            return blogArticles;
         }
 
         // GET: api/Blog
