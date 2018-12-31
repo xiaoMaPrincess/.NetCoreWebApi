@@ -10,6 +10,7 @@ using Core.Model.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace CoreWebApi.Controllers
 {
@@ -22,11 +23,13 @@ namespace CoreWebApi.Controllers
         private readonly IAdvertisementServices _advertisementServices;
         private readonly IBlogArticleServices _blogArticleServices;
         private readonly IRedisCacheManager _redisCacheManager;
-        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices,IRedisCacheManager redisCacheManager)
+        private readonly IOptions<AppSettings> _options;
+        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices,IRedisCacheManager redisCacheManager, IOptions<AppSettings> options)
         {
             _advertisementServices = advertisementServices;
             _blogArticleServices = blogArticleServices;
             _redisCacheManager = redisCacheManager;
+            _options = options;
         }
 
         /// <summary>
@@ -36,7 +39,9 @@ namespace CoreWebApi.Controllers
         [HttpGet]
         public async Task<List<BlogArticle>> GetBlogs()
         {
-            var connect = AppsettingsHelper.app(new string[] { "AppSettings", "RedisCaching", "ConnectionString" });
+            // 获取配置信息
+            var con = _options.Value.RedisCaching.ConnectionString;
+           // var connect = AppsettingsHelper.app(new string[] { "AppSettings", "RedisCaching", "ConnectionString" });
             List<BlogArticle> blogArticles = new List<BlogArticle>();
             if (_redisCacheManager.Get<object>("Redis.Blog") != null)
             {

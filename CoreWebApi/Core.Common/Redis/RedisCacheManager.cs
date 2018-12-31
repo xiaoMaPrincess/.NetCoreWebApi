@@ -1,4 +1,5 @@
 ﻿using Core.Common.Helper;
+using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -16,16 +17,19 @@ namespace Core.Common.Redis
         public volatile ConnectionMultiplexer redisConnection;
 
         private readonly object redisConnectionLock = new object();
+        private readonly string redisConfiguration;
 
-        public RedisCacheManager()
+        public RedisCacheManager(IOptions<AppSettings> options)
         {
             // 获取连接字符串
-            string redisConfiguration = AppsettingsHelper.app(new string[] { "AppSettings", "RedisCaching", "ConnectionString" });
+            redisConfiguration = options.Value.RedisCaching.ConnectionString;
+            //string redisConfiguration = //AppsettingsHelper.app(new string[] { "AppSettings", "RedisCaching", "ConnectionString" });
             if (string.IsNullOrWhiteSpace(redisConfiguration))
             {
                 throw new ArgumentException("Redis config is empty", nameof(redisConfiguration));
             }
             this.redisConnenctionString = redisConfiguration;
+            this.redisConnection = GetRedisConnection();
         }
 
         /// <summary>

@@ -5442,6 +5442,7 @@
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Json": "2.1.1",
+          "Microsoft.Extensions.Options": "2.1.1",
           "StackExchange.Redis": "2.0.519"
         },
         "compile": {
