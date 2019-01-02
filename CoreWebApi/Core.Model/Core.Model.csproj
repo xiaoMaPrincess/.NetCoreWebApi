@@ -8,8 +8,4 @@
     <DocumentationFile>bin\Debug\netcoreapp2.1\Core.Model.xml</DocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-
 </Project>

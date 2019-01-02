@@ -7,6 +7,7 @@ using Core.Common.Helper;
 using Core.Common.Redis;
 using Core.IServices;
 using Core.Model.Models;
+using Core.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +54,17 @@ namespace CoreWebApi.Controllers
                 _redisCacheManager.Set("Redis.Blog", blogArticles, TimeSpan.FromHours(2));
             }
             return blogArticles;
+        }
+
+        /// <summary>
+        /// 获取博客详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<BlogViewModel> GetBlogDetails(int id)
+        {
+            return await _blogArticleServices.getBlogDetails(id);
         }
 
         // GET: api/Blog

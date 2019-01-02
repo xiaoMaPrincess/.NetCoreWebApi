@@ -1,5 +1,6 @@
 ﻿using Core.IServices.BASE;
 using Core.Model.Models;
+using Core.Model.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,11 @@ namespace Core.IServices
         /// </summary>
         /// <returns></returns>
         Task<List<BlogArticle>> GetBlogs();
+        /// <summary>
+        /// 获取博客详情
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        Task<BlogViewModel> getBlogDetails(int id);
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
+using AutoMapper;
 using Core.Common.Helper;
 using Core.Common.Redis;
 using Core.IServices;
@@ -47,8 +48,15 @@ namespace CoreWebApi
             services.AddScoped<IRedisCacheManager, RedisCacheManager>();
 
 
+
+
             services.AddOptions();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+
+            #region Automapper
+            // 注入Automapper服务
+            services.AddAutoMapper(typeof(Startup));
+            #endregion
 
             #region 注册Swagger服务
             services.AddSwaggerGen(x =>
@@ -68,7 +76,7 @@ namespace CoreWebApi
                 x.IncludeXmlComments(xmlPath, true);// 启用xml注释，第二个参数是控制器的注释，默认为false
 
                 // 获取应用程序根路径
-                var basePath =Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
+                var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
                 // 获取Model层的xml文件
                 var xmlModelPath = Path.Combine(basePath, "Core.Model.xml");
                 // 启用Model层注释
@@ -135,6 +143,33 @@ namespace CoreWebApi
             // 数据库连接字符串
             //BaseDBConfig.ConnectionString = Configuration.GetSection("ConnectionString:Value").Value;
 
+            #region CORS跨域请求
+
+            services.AddCors(c =>
+            {
+                // 全开放，不用在正式环境
+                c.AddPolicy("AllRequests", policy =>
+                {
+                    policy.AllowAnyOrigin()//允许任何源头
+                    .AllowAnyMethod()// 允许任何方式
+                    .AllowAnyHeader()
+                    .AllowCredentials();// 允许cookie
+                });
+
+                // 常规处理方法
+                c.AddPolicy("LimitRequests", policy =>
+                {
+                    policy.WithOrigins("http://localhost:8020", "")// 限制域名，并支持多个，注：此处指的是客户端端口域名
+                    .WithMethods("GET", "POST", "PUT", "DELETE")// 请求方法添加到策略
+                    .WithHeaders("authorization");//将请求头添加到测试
+                });
+
+            });
+
+
+
+            #endregion
+
             #region AutoFac
             // 实例化AutoFac容器
             var builder = new ContainerBuilder();
@@ -142,7 +177,7 @@ namespace CoreWebApi
             builder.RegisterType<CoreLogAOP>();
 
             // 注册 单个注册
-           // builder.RegisterType<AdvertisementServices>().As<IAdvertisementServices>();
+            // builder.RegisterType<AdvertisementServices>().As<IAdvertisementServices>();
 
             // 获取项目路径
             var pathBase = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
@@ -163,7 +198,7 @@ namespace CoreWebApi
             // 将services 填充AutoFac容器生成器，使原来ConfigureServices中的服务可用。可以理解为使用Auto接管原来的ConfigureServices
             builder.Populate(services);
             //使用以注册的组件登记穿件新容器
-            var applicationContainer= builder.Build();
+            var applicationContainer = builder.Build();
             #endregion
             // 第三方IOC接管
             return new AutofacServiceProvider(applicationContainer);
@@ -203,8 +238,10 @@ namespace CoreWebApi
             // 使用官方授权
             app.UseAuthentication();
             // 添加自定义中间件的第二种方式
-           // app.UseRequestCulture();
+            // app.UseRequestCulture();
             app.UseHttpsRedirection();
+            // 添加Cors中间件，允许跨域请求
+            app.UseCors("LimitRequests");
             app.UseMvc();
         }
     }

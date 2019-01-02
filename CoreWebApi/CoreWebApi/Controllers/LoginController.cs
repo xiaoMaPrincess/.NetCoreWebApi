@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CoreWebApi.AuthHelper.OverWrite;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreWebApi.Controllers
@@ -11,6 +12,7 @@ namespace CoreWebApi.Controllers
     [Route("api/[controller]/[action]")]
     [ApiController]
     [Produces("application/json")]
+    [EnableCors("LimitRequests")]
     public class LoginController : Controller
     {
         /// <summary>
