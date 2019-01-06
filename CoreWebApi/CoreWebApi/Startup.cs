@@ -26,6 +26,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
+using static CoreWebApi.SwaggerHelper.CustomApiVersion;
 
 namespace CoreWebApi
 {
@@ -61,14 +62,17 @@ namespace CoreWebApi
             #region 注册Swagger服务
             services.AddSwaggerGen(x =>
             {
-                // 文档描述
-                x.SwaggerDoc("v1", new Info
+                typeof(ApiVersions).GetEnumNames().ToList().ForEach(version =>
                 {
-                    Version = "v1.0",
-                    Title = "Core API",
-                    Description = "接口说明文档",
-                    TermsOfService = "None",
-                    Contact = new Contact { Name = "AllenJee", Email = "xiaomaprincess@gmail.com" }
+                    // 文档描述
+                    x.SwaggerDoc(version, new Info
+                    {
+                        Version = version,
+                        Title = $"Core API {version}",
+                        Description = "接口说明文档"+version,
+                        TermsOfService = "None",
+                        Contact = new Contact { Name = "AllenJee", Email = "xiaomaprincess@gmail.com" }
+                    });
                 });
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"; //生成xml文件名
@@ -229,7 +233,13 @@ namespace CoreWebApi
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiHelp V1");
+                //x.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiHelp V1");
+                // 遍历版本
+                typeof(ApiVersions).GetEnumNames().OrderByDescending(e => e).ToList().ForEach(version =>
+                {
+                    x.SwaggerEndpoint($"/swagger/{version}/swagger.json", $"Core Api{version}");
+                });
+
             });
             #endregion
 

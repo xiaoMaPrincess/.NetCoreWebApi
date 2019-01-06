@@ -15,7 +15,7 @@ namespace Core.Services
     public class BlogArticleServices : BaseServices<BlogArticle>, IBlogArticleServices
     {
         private readonly IBlogArticleRepository dal;
-
+        
         private readonly IMapper _mapper;
 
         public BlogArticleServices(IBlogArticleRepository dal,IMapper mapper)
