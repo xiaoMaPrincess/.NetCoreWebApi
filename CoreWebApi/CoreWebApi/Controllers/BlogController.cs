@@ -8,10 +8,12 @@ using Core.Common.Redis;
 using Core.IServices;
 using Core.Model.Models;
 using Core.Model.ViewModels;
+using CoreWebApi.SwaggerHelper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using static CoreWebApi.SwaggerHelper.CustomApiVersion;
 
 namespace CoreWebApi.Controllers
 {
@@ -31,6 +33,17 @@ namespace CoreWebApi.Controllers
             _blogArticleServices = blogArticleServices;
             _redisCacheManager = redisCacheManager;
             _options = options;
+        }
+
+        /// <summary>
+        /// 测试接口版本控制
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [CustomRoute(ApiVersions.v2)]
+        public object GetVAsync_v2()
+        {
+            return Ok(new { status = 220, data = "接口第二版" });
         }
 
         /// <summary>
