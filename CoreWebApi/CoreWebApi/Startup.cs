@@ -14,6 +14,11 @@ using Core.Common.Redis;
 using Core.IServices;
 using CoreWebApi.AOP;
 using CoreWebApi.AuthHelper.OverWrite;
+using CoreWebApi.Filter;
+using CoreWebApi.Log;
+using log4net;
+using log4net.Config;
+using log4net.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,20 +40,30 @@ namespace CoreWebApi
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            repository = LogManager.CreateRepository("Core");// 项目（仓库）名
+            XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));// 配置文件
         }
 
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// log4net 仓储库
+        /// </summary>
+        public static ILoggerRepository repository { get; set; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //
+            services.AddMvc(o=> {
+                o.Filters.Add(typeof(GlobalExceptionFilter));
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // 注入缓存
             services.AddScoped<ICaching, MemoryCaching>();
             // Redis接口注入
             services.AddScoped<IRedisCacheManager, RedisCacheManager>();
-
-
+            // 日志接口、实现类注入
+            services.AddSingleton<ILoggerHelper, LogHelper>();
 
 
             services.AddOptions();
