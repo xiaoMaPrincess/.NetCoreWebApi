@@ -122,5 +122,15 @@ namespace CoreWebApi.Controllers
         public void Delete(int id)
         {
         }
+
+        /// <summary>
+        /// Dapper测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public BlogArticle GetBlogArticle()
+        {
+            return _blogArticleServices.GetBlog();
+        }
     }
 }

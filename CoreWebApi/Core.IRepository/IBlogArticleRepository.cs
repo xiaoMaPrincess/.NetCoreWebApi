@@ -9,5 +9,6 @@ namespace Core.IRepository
 {
     public interface IBlogArticleRepository : IBaseRepository<BlogArticle>
     {
+        BlogArticle GetBlog();
     }
 }

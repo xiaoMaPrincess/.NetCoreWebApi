@@ -104,5 +104,10 @@ namespace Core.Services
             var blogList = await dal.Query(a=>a.bID>0,a=>a.bID);
             return blogList;
         }
+
+        public BlogArticle GetBlog()
+        {
+           return dal.GetBlog();
+        }
     }
 }

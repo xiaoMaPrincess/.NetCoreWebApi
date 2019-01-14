@@ -21,5 +21,11 @@ namespace Core.IServices
         /// <param name="id"></param>
         /// <returns></returns>
         Task<BlogViewModel> getBlogDetails(int id);
+
+        /// <summary>
+        /// Dapper测试
+        /// </summary>
+        /// <returns></returns>
+        BlogArticle GetBlog();
     }
 }
