@@ -1,0 +1,15 @@
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.IServices.deps.json
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.IServices.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.IServices.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.IRepository.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.Model.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.IRepository.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.Model.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\bin\Debug\netcoreapp2.1\Core.Model.xml
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.csprojAssemblyReference.cache
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.csproj.CoreCompileInputs.cache
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.AssemblyInfoInputs.cache
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.AssemblyInfo.cs
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.csproj.CopyComplete
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IServices\obj\Debug\netcoreapp2.1\Core.IServices.pdb

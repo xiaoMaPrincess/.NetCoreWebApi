@@ -723,23 +723,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Users\\Jee\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj",
+      "projectUniqueName": "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj",
       "projectName": "Core.IServices",
-      "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\obj\\",
+      "projectPath": "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\Core.IServices.csproj",
+      "packagesPath": "C:\\Users\\Jee\\.nuget\\packages\\",
+      "outputPath": "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jee\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -747,17 +747,16 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://nuget.sundot.cn/nuget": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj"
+            "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj": {
+              "projectPath": "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.IRepository\\Core.IRepository.csproj"
             },
-            "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj": {
-              "projectPath": "C:\\Users\\Administrator\\Desktop\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj"
+            "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj": {
+              "projectPath": "D:\\桌面文件\\DotNetCore\\.NetCoreWebApi\\CoreWebApi\\Core.Model\\Core.Model.csproj"
             }
           }
         }

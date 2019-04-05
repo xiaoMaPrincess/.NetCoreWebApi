@@ -1,0 +1,13 @@
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.IRepository.deps.json
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.IRepository.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.IRepository.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.Model.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.Model.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\bin\Debug\netcoreapp2.1\Core.Model.xml
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.csprojAssemblyReference.cache
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.csproj.CoreCompileInputs.cache
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.AssemblyInfoInputs.cache
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.AssemblyInfo.cs
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.csproj.CopyComplete
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.IRepository\obj\Debug\netcoreapp2.1\Core.IRepository.pdb

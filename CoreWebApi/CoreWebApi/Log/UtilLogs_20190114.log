@@ -1,0 +1,37 @@
+【异常时间】：2019-01-14 00:05:43,807 
+【自定义错误】：用户 'sa' 登录失败。 
+【异常类型】：SqlException 
+【异常信息】：用户 'sa' 登录失败。 
+【堆栈调用】：   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at Core.Repository.Dapper.DapperHelper.OpenCurrentDbConnection() in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\Dapper\DapperHelper.cs:line 72
+   at Core.Repository.Dapper.DbContext.get_Db() in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\Dapper\DbContext.cs:line 19
+   at Core.Repository.Dapper.DbContext.Query[T](String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\Dapper\DbContext.cs:line 45
+   at Core.Repository.BlogArticleRepository.GetBlog() in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Repository\BlogArticleRepository.cs:line 18
+   at Core.Services.BlogArticleServices.GetBlog() in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Services\BlogArticleServices.cs:line 110
+   at Castle.Proxies.Invocations.IBlogArticleServices_GetBlog.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at CoreWebApi.AOP.CoreLogAOP.Intercept(IInvocation invocation) in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\AOP\CoreLogAOP.cs:line 24
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.IBaseServices`1Proxy_1.GetBlog()
+   at CoreWebApi.Controllers.BlogController.GetBlogArticle() in C:\Users\Administrator\Desktop\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreWebApi\Controllers\BlogController.cs:line 133
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()
+--------------------------------------------------------------------
