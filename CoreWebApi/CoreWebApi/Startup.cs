@@ -9,6 +9,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
 using AutoMapper;
+using Core.Common.Dapper;
 using Core.Common.Helper;
 using Core.Common.Redis;
 using Core.IServices;
@@ -64,7 +65,8 @@ namespace CoreWebApi
             services.AddScoped<IRedisCacheManager, RedisCacheManager>();
             // 日志接口、实现类注入
             services.AddSingleton<ILoggerHelper, LogHelper>();
-
+            // Dapper注入
+            services.AddSingleton<DbContext>();
 
             services.AddOptions();
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
@@ -159,8 +161,6 @@ namespace CoreWebApi
             });
             #endregion
 
-            // 数据库连接字符串
-            //BaseDBConfig.ConnectionString = Configuration.GetSection("ConnectionString:Value").Value;
 
             #region CORS跨域请求
 

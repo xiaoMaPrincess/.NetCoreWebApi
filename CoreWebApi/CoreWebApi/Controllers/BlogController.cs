@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Common.Attributes;
+using Core.Common.Dapper;
 using Core.Common.Helper;
 using Core.Common.Redis;
 using Core.IServices;
@@ -130,6 +131,7 @@ namespace CoreWebApi.Controllers
         [HttpGet]
         public BlogArticle GetBlogArticle()
         {
+            //_redisCacheManager.Set("jee", "haha");
             return _blogArticleServices.GetBlog();
         }
     }

@@ -1,7 +1,7 @@
-﻿using Core.IRepository;
+﻿using Core.Common.Dapper;
+using Core.IRepository;
 using Core.Model.Models;
 using Core.Repository.BASE;
-using Core.Repository.Dapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +12,17 @@ namespace Core.Repository
 {
     public class BlogArticleRepository : BaseRepository<BlogArticle>, IBlogArticleRepository
     {
+        private readonly DbContext db;
+        public BlogArticleRepository(DbContext _db)
+        {
+            db = _db;
+        }
         public BlogArticle GetBlog()
         {
             string sql = "SELECT * FROM BlogArticle";
-            var list= DbContext.Query<BlogArticle>(sql);
-            return list.FirstOrDefault();
+            var list = db.QueryFirstOrDefault<BlogArticle>(sql);
+
+            return list; //new BlogArticle() { btitle="1" };// 
         }
     }
 }

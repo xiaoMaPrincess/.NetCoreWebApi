@@ -10,10 +10,12 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.5" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
     <PackageReference Include="sqlSugarCore" Version="4.9.7.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj" />
     <ProjectReference Include="..\Core.IRepository\Core.IRepository.csproj" />
   </ItemGroup>
 

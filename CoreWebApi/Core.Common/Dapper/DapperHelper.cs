@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Core.Common.Helper;
+using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace Core.Repository.Dapper
+namespace Core.Common.Dapper
 {
     public class DapperHelper
     {
@@ -22,38 +24,45 @@ namespace Core.Repository.Dapper
         private static IDbConnection dbConnection = null;
 
         /// 静态变量保存类的实例        
-        private static DapperHelper uniqueInstance;
+        //private static DapperHelper uniqueInstance;
 
         /// 定义一个标识确保线程同步        
         private static readonly object locker = new object();
+        //private IOptions<AppSettings> options;
         /// <summary>
         /// 私有构造方法，使外界不能创建该类的实例，以便实现单例模式
         /// </summary>
-        private DapperHelper()
+        private DapperHelper(IOptions<AppSettings> options)
         {
+            _connection = options.Value.SqlServer.Value;
             // 这里为了方便演示直接写的字符串，实例项目中可以将连接字符串放在配置文件中，再进行读取。
-            _connection = @"server=.;uid=sa;pwd=sasa;database=CoreWebApiDb";
+            //_connection = @"server=.;uid=sa;pwd=sasa;database=ContosoUniversity1";
         }
+
+        //private DapperHelper()
+        //{
+        //}
 
         /// <summary>
         /// 获取实例，这里为单例模式，保证只存在一个实例
         /// </summary>
         /// <returns></returns>
-        public static DapperHelper GetInstance()
-        {
-            // 双重锁定实现单例模式，在外层加个判空条件主要是为了减少加锁、释放锁的不必要的损耗
-            if (uniqueInstance == null)
-            {
-                lock (locker)
-                {
-                    if (uniqueInstance == null)
-                    {
-                        uniqueInstance = new DapperHelper();
-                    }
-                }
-            }
-            return uniqueInstance;
-        }
+        //public static DapperHelper GetInstance()
+        //{
+        //    uniqueInstance = null;
+        //    双重锁定实现单例模式，在外层加个判空条件主要是为了减少加锁、释放锁的不必要的损耗
+        //    if (uniqueInstance == null)
+        //    {
+        //        lock (locker)
+        //        {
+        //            if (uniqueInstance == null)
+        //            {
+        //                uniqueInstance = new DapperHelper();
+        //            }
+        //        }
+        //    }
+        //    return uniqueInstance;
+        //}
 
 
         /// <summary>
@@ -74,4 +83,5 @@ namespace Core.Repository.Dapper
             return dbConnection;
         }
     }
+
 }

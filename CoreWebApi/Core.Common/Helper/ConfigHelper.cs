@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +12,7 @@ namespace Core.Common.Helper
     {
         public RedisCaching RedisCaching { get; set; }
         public SqlServer SqlServer { get; set; }
+
     }
     public class RedisCaching
     {
