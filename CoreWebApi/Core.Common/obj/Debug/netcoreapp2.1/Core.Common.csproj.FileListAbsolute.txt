@@ -6,3 +6,4 @@ D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Common\obj\Debug\netco
 D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Common\obj\Debug\netcoreapp2.1\Core.Common.AssemblyInfo.cs
 D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Common\obj\Debug\netcoreapp2.1\Core.Common.dll
 D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Common\obj\Debug\netcoreapp2.1\Core.Common.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\Core.Common\obj\Debug\netcoreapp2.1\Core.Common.csprojAssemblyReference.cache

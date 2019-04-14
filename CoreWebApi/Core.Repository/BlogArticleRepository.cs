@@ -20,7 +20,7 @@ namespace Core.Repository
         public BlogArticle GetBlog()
         {
             string sql = "SELECT * FROM BlogArticle";
-            var list = db.QueryFirstOrDefault<BlogArticle>(sql);
+            var list = DbContext.QueryFirstOrDefault<BlogArticle>(sql);
 
             return list; //new BlogArticle() { btitle="1" };// 
         }
