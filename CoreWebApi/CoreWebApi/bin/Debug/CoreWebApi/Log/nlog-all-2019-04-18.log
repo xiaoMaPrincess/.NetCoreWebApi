@@ -1,0 +1,28 @@
+2019-04-18 13:20:19.3504|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:19.3504|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:19.5675|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:19.5675|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:20.8960|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html   
+2019-04-18 13:20:20.8960|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET https://localhost:5001/swagger/index.html   
+2019-04-18 13:20:21.1413|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 246.832ms 200 text/html 
+2019-04-18 13:20:21.1413|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 246.832ms 200 text/html 
+2019-04-18 13:20:21.3966|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET https://localhost:5001/swagger/v2/swagger.json   
+2019-04-18 13:20:21.3966|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET https://localhost:5001/swagger/v2/swagger.json   
+2019-04-18 13:20:21.8221|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 427.3185ms 200 application/json;charset=utf-8 
+2019-04-18 13:20:21.8221|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 427.3185ms 200 application/json;charset=utf-8 
+2019-04-18 13:22:44.5661|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET https://localhost:5001/api/Blog/SetLog   
+2019-04-18 13:22:44.5723|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request starting HTTP/1.1 GET https://localhost:5001/api/Blog/SetLog   
+2019-04-18 13:22:44.7983|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Route matched with {action = "SetLog", controller = "Blog"}. Executing action CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi) 
+2019-04-18 13:22:44.8053|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Route matched with {action = "SetLog", controller = "Blog"}. Executing action CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi) 
+2019-04-18 13:22:46.3119|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi) - Validation state: Valid 
+2019-04-18 13:22:46.3119|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executing action method CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi) - Validation state: Valid 
+2019-04-18 13:22:46.3178|CoreWebApi.Controllers.BlogController|WARN|Nlog ceshi 
+2019-04-18 13:22:46.3178|CoreWebApi.Controllers.BlogController|WARN|Nlog ceshi 
+2019-04-18 13:22:46.3178|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action method CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 9.6271ms. 
+2019-04-18 13:22:46.3178|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action method CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 9.6271ms. 
+2019-04-18 13:22:46.3538|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|INFO|Executing ObjectResult, writing value of type 'System.String[]'. 
+2019-04-18 13:22:46.3538|Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor|INFO|Executing ObjectResult, writing value of type 'System.String[]'. 
+2019-04-18 13:22:46.3729|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi) in 1537.7739ms 
+2019-04-18 13:22:46.3729|Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker|INFO|Executed action CoreWebApi.Controllers.BlogController.SetLog (CoreWebApi) in 1537.7739ms 
+2019-04-18 13:22:46.3819|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1813.9894ms 200 application/json; charset=utf-8 
+2019-04-18 13:22:46.3819|Microsoft.AspNetCore.Hosting.Internal.WebHost|INFO|Request finished in 1813.9894ms 200 application/json; charset=utf-8 

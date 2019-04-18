@@ -1,0 +1,6 @@
+2019-04-18 13:20:19.3504|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:19.3504|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:19.5675|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:20:19.5675|HttpsConnectionAdapter|DEBUG|Failed to authenticate HTTPS connection. Authentication failed because the remote party has closed the transport stream.
+2019-04-18 13:22:46.3178|CoreWebApi.Controllers.BlogController|WARN|Nlog ceshi 
+2019-04-18 13:22:46.3178|CoreWebApi.Controllers.BlogController|WARN|Nlog ceshi 
