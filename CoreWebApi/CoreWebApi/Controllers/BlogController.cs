@@ -13,6 +13,7 @@ using CoreWebApi.SwaggerHelper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using static CoreWebApi.SwaggerHelper.CustomApiVersion;
 
@@ -28,12 +29,14 @@ namespace CoreWebApi.Controllers
         private readonly IBlogArticleServices _blogArticleServices;
         private readonly IRedisCacheManager _redisCacheManager;
         private readonly IOptions<AppSettings> _options;
-        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices,IRedisCacheManager redisCacheManager, IOptions<AppSettings> options)
+        private ILogger<BlogController> logger;
+        public BlogController(IAdvertisementServices advertisementServices, IBlogArticleServices blogArticleServices,IRedisCacheManager redisCacheManager, IOptions<AppSettings> options, ILogger<BlogController> _logger)
         {
             _advertisementServices = advertisementServices;
             _blogArticleServices = blogArticleServices;
             _redisCacheManager = redisCacheManager;
             _options = options;
+            logger = _logger;
         }
 
         /// <summary>
@@ -134,5 +137,16 @@ namespace CoreWebApi.Controllers
             //_redisCacheManager.Set("jee", "haha");
             return _blogArticleServices.GetBlog();
         }
+        /// <summary>
+        /// Nlog日志接口测试
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public ActionResult<IEnumerable<string>> SetLog()
+        {
+            logger.LogWarning("Nlog ceshi");
+            return new string[] { "value1", "value2" };
+        }
+
     }
 }

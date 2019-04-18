@@ -31,6 +31,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using NLog.Extensions.Logging;
+using NLog.Web;
 using Swashbuckle.AspNetCore.Swagger;
 using static CoreWebApi.SwaggerHelper.CustomApiVersion;
 
@@ -226,7 +228,7 @@ namespace CoreWebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -262,12 +264,18 @@ namespace CoreWebApi
             // app.UseMiddleware<JwtTokenAuth>();//  此方法已废弃
             // 使用官方授权
             app.UseAuthentication();
+            // Nlog日志记录
+            loggerFactory.AddNLog();
+            // Nlog配置文件
+            env.ConfigureNLog("Nlog.config");
             // 添加自定义中间件的第二种方式
             // app.UseRequestCulture();
             app.UseHttpsRedirection();
             // 添加Cors中间件，允许跨域请求
             app.UseCors("LimitRequests");
+         
             app.UseMvc();
+           
         }
     }
 }
