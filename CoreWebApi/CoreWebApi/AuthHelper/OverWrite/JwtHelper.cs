@@ -40,7 +40,7 @@ namespace CoreWebApi.AuthHelper.OverWrite
                 new Claim(ClaimTypes.Role,tokenModel.Role)
             };
             //秘钥
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtHelper.secretKey));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var jwt = new JwtSecurityToken(

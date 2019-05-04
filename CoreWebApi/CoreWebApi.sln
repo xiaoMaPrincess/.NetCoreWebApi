@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.IServices", "Core.ISer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Services", "Core.Services\Core.Services.csproj", "{6D968205-C23E-4042-9DF5-A2EAD4462029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Common", "Core.Common\Core.Common.csproj", "{97E07083-E52E-4DF0-835E-88604A2D33AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Common", "Core.Common\Core.Common.csproj", "{97E07083-E52E-4DF0-835E-88604A2D33AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDBConsole", "CoreDBConsole\CoreDBConsole.csproj", "{62736B64-C99D-4CA6-921E-F0E1A5049CA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E07083-E52E-4DF0-835E-88604A2D33AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

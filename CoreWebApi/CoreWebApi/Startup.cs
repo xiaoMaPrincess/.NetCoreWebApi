@@ -50,7 +50,7 @@ namespace CoreWebApi
         public IConfiguration Configuration { get; }
 
         /// <summary>
-        /// log4net 仓储库
+        /// log4net 仓储
         /// </summary>
         public static ILoggerRepository repository { get; set; }
 
