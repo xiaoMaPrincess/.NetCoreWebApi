@@ -12,6 +12,7 @@ namespace Core.Common.Helper
     {
         public RedisCaching RedisCaching { get; set; }
         public SqlServer SqlServer { get; set; }
+        public Mysql Mysql { get; set; }
 
     }
     public class RedisCaching
@@ -21,6 +22,10 @@ namespace Core.Common.Helper
         public string ConnectionString { get; set; }
     }
     public class SqlServer
+    {
+        public string Value { get; set; }
+    }
+    public class Mysql
     {
         public string Value { get; set; }
     }

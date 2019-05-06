@@ -1,6 +1,7 @@
 ﻿using Core.Common.Helper;
 using Dapper;
 using Microsoft.Extensions.Options;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,7 +26,7 @@ namespace Core.Common.Dapper
         private static IDbConnection dbConnection = null;
         public DbContext(IOptions<AppSettings> options)
         {
-            _connection = options.Value.SqlServer.Value;
+            _connection = options.Value.Mysql.Value;//options.Value.Mysql.Value; //
         }
         // 获取开启数据库的连接
         private static IDbConnection Db
@@ -41,8 +42,8 @@ namespace Core.Common.Dapper
         {
             if (dbConnection == null)
             {
-                dbConnection = new SqlConnection(Connection);
-            }
+                dbConnection = new MySqlConnection(Connection); // new SqlConnection(Connection);
+            }   
             //判断连接状态
             if (dbConnection.State == ConnectionState.Closed)
             {

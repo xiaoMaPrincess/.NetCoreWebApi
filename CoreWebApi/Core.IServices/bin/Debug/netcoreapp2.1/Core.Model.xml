@@ -4,6 +4,16 @@
         <name>Core.Model</name>
     </assembly>
     <members>
+        <member name="T:Core.Model.SexEnum">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="T:Core.Model.DBTypeEnum">
+            <summary>
+            数据库类型
+            </summary>
+        </member>
         <member name="T:Core.Model.MessageModel`1">
             <summary>
             通用返回信息类
@@ -316,6 +326,51 @@
         <member name="P:Core.Model.ViewModels.BlogViewModel.bRemark">
             <summary>备注
             
+            </summary>
+        </member>
+        <member name="T:Core.Model.ViewModels.LoginVM">
+            <summary>
+            用户注册
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginVM.ITCode">
+            <summary>
+            账号
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginVM.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginVM.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginVM.Name">
+            <summary>
+            显示昵称
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginVM.PasswordMD5">
+            <summary>
+            密码 加密
+            </summary>
+        </member>
+        <member name="T:Core.Model.ViewModels.LoginResult">
+            <summary>
+            用户注册（返回结果）
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginResult.Result">
+            <summary>
+            True：成功 False: 失败
+            </summary>
+        </member>
+        <member name="P:Core.Model.ViewModels.LoginResult.Reason">
+            <summary>
+            失败原因
             </summary>
         </member>
     </members>
