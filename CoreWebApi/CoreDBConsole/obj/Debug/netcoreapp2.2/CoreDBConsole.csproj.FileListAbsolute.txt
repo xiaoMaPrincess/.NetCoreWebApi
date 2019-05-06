@@ -9,3 +9,9 @@ D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\obj\Debug\net
 D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\obj\Debug\netcoreapp2.2\CoreDBConsole.AssemblyInfo.cs
 D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\obj\Debug\netcoreapp2.2\CoreDBConsole.dll
 D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\obj\Debug\netcoreapp2.2\CoreDBConsole.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\bin\Debug\netcoreapp2.2\Core.Common.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\bin\Debug\netcoreapp2.2\Core.Model.dll
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\bin\Debug\netcoreapp2.2\Core.Common.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\bin\Debug\netcoreapp2.2\Core.Model.pdb
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\bin\Debug\netcoreapp2.2\Core.Model.xml
+D:\桌面文件\DotNetCore\.NetCoreWebApi\CoreWebApi\CoreDBConsole\obj\Debug\netcoreapp2.2\CoreDBConsole.csproj.CopyComplete

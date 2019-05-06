@@ -199,6 +199,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:CoreWebApi.Controllers.UserController.UserRegister(Core.Model.ViewModels.LoginVM)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="loginVM"></param>
+            <returns></returns>
+        </member>
         <member name="T:CoreWebApi.Controllers.ValuesController">
             <summary>
             value控制器
@@ -593,7 +600,7 @@
         </member>
         <member name="P:CoreWebApi.Startup.repository">
             <summary>
-            log4net 仓储库
+            log4net 仓储
             </summary>
         </member>
         <member name="T:CoreWebApi.SwaggerHelper.CustomApiVersion">
