@@ -13,7 +13,14 @@ namespace Core.Model
         男,
         女
     }
-
+    /// <summary>
+    /// 用户类型
+    /// </summary>
+    public enum UserTypeEnum
+    {
+        管理员,
+        用户
+    }
     /// <summary>
     /// 数据库类型
     /// </summary>

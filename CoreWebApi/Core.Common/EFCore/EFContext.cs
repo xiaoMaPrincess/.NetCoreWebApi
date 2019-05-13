@@ -1,5 +1,6 @@
 ﻿using Core.Common.Helper;
 using Core.Model;
+using Core.Model.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System;
@@ -11,6 +12,12 @@ namespace Core.Common.EFCore
 {
     public class EFContext: DbContext
     {
+        /// <summary>
+        /// 用户
+        /// </summary>
+
+        public DbSet<SystemUser> SystemUser { get; set; }
+
         /// <summary>
         /// 连接字符串
         /// </summary>
@@ -31,6 +38,8 @@ namespace Core.Common.EFCore
         public EFContext(string cs,DBTypeEnum dbType)
         {
             Connection = cs;
+            DbType = dbType;
+
         }
 
         /// <summary>
