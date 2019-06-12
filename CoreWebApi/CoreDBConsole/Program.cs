@@ -32,7 +32,7 @@ namespace CoreDBConsole
             //启用加密
             client.EnableSsl = true;
             //通过用户名和密码验证发件人身份
-            client.Credentials = new NetworkCredential("923974733@qq.com", "lsvogcrxkziobddd");
+            client.Credentials = new NetworkCredential("923974733@qq.com", "xxxxxxxxxx");
             //发送邮件
             try
             {
