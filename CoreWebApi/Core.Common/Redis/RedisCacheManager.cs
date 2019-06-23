@@ -15,7 +15,6 @@ namespace Core.Common.Redis
     public class RedisCacheManager : IRedisCacheManager
     {
         private readonly string redisConnenctionString;
-
         public volatile ConnectionMultiplexer redisConnection;
 
         private readonly object redisConnectionLock = new object();
@@ -282,6 +281,7 @@ namespace Core.Common.Redis
             {
                 keyArray[i] = hashids[i];
             }
+
             return database.HashDeleteAsync(key, keyArray, flags);
         }
 

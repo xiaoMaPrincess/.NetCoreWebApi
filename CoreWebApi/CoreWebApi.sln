@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Services", "Core.Servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Common", "Core.Common\Core.Common.csproj", "{97E07083-E52E-4DF0-835E-88604A2D33AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreDBConsole", "CoreDBConsole\CoreDBConsole.csproj", "{62736B64-C99D-4CA6-921E-F0E1A5049CA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreDBConsole", "CoreDBConsole\CoreDBConsole.csproj", "{62736B64-C99D-4CA6-921E-F0E1A5049CA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Msi", "Core.Msi\Core.Msi.csproj", "{66A989B2-3FDC-4F2D-B644-89B7D43907F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62736B64-C99D-4CA6-921E-F0E1A5049CA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A989B2-3FDC-4F2D-B644-89B7D43907F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A989B2-3FDC-4F2D-B644-89B7D43907F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A989B2-3FDC-4F2D-B644-89B7D43907F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A989B2-3FDC-4F2D-B644-89B7D43907F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

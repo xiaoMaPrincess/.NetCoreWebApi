@@ -99,11 +99,11 @@ namespace CoreWebApi
                 x.IncludeXmlComments(xmlPath, true);// 启用xml注释，第二个参数是控制器的注释，默认为false
 
                 // 获取应用程序根路径
-                var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
+                //var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
                 // 获取Model层的xml文件
-                var xmlModelPath = Path.Combine(basePath, "Core.Model.xml");
+                //var xmlModelPath = Path.Combine(basePath, "Core.Model.xml");
                 // 启用Model层注释
-                x.IncludeXmlComments(xmlModelPath);
+                //x.IncludeXmlComments(xmlModelPath);
                 #region Token绑定到ConfigureServices
                 // 添加header验证信息
                 var security = new Dictionary<string, IEnumerable<string>> { { "Blog.Core", new string[] { } }, };
