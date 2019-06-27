@@ -8,12 +8,14 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Core.Common;
 using Core.Common.EFCore;
+using Core.Common.MemoryCache;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -38,11 +40,18 @@ namespace Core.Msi
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+
+            // 启用缓存服务
+            services.AddMemoryCache();
+
+            // 注入自定义缓存接口
+            services.AddScoped<ICache, Cache>();
+
             // 注入EF
             services.AddScoped<IEFContext, EFContext>();
-            // Mysql
+            // 启用EFCore服务
             services.AddDbContext<EFContext>(options =>
-     options.UseMySql(Configuration.GetConnectionString("ConnectionString")));
+    options.UseMySql(Configuration.GetConnectionString("ConnectionString")));
             services.AddMemoryCache();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // Add Autofac

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\CoreWebApi\bin\Debug\</OutputPath>
+    <OutputPath>..\Core.Msi\bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>

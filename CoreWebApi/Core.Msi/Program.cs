@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Common.EFCore;
+using Core.Model.Models;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,10 @@ namespace Core.Msi
                 {
                     var serviceContext = services.GetRequiredService<IConfiguration>();
                     var connectionString = serviceContext.GetValue<string>("ConnectionString");
+                    var context = new EFContext(connectionString, Model.DBTypeEnum.Mysql);
+                    List<SystemModule> list = new List<SystemModule>() { new SystemModule {ModuleName="用户管理",ClassName= "SystemUser"}, new SystemModule { ModuleName = "角色管理", ClassName = "SystemRole" }, new SystemModule { ModuleName = "用户组管理", ClassName = "SystemGroup" }, new SystemModule { ModuleName = "菜单管理", ClassName = "SystemMenu" } };
+                    // 初始化数据
+                     context.DataInit(list);
                 }
                 catch (Exception ex)
                 {

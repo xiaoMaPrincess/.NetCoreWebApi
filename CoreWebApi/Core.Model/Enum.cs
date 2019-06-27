@@ -26,7 +26,7 @@ namespace Core.Model
     /// </summary>
     public enum DBTypeEnum
     {
+        Mysql,
         SqlServer,
-        Mysql
     }
 }

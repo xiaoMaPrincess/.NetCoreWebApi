@@ -1,5 +1,6 @@
 ﻿using Core.Model;
 using Core.Model.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,7 @@ namespace Core.Common.EFCore
         /// </summary>
         /// <typeparam name="T">泛型</typeparam>
         /// <returns></returns>
-        //DbSet<T> Set<T>() where T : BaseModel;
+        DbSet<T> Set<T>() where T : class;
 
 
         /// <summary>
@@ -99,7 +100,7 @@ namespace Core.Common.EFCore
         /// </summary>
         /// <param name="allModules">所有模块</param>
         /// <returns>True:数据库初始化完成 False:即数据库初始化失败，数据库已存在</returns>
-        Task<bool> DataInit(object allModules);
+        //Task<bool> DataInit(object allModules);
 
         IEFContext CreateNew();
         IEFContext ReCreate();

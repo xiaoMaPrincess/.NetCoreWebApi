@@ -2,6 +2,7 @@
 using Core.Model;
 using Core.Model.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 using System;
@@ -17,6 +18,17 @@ namespace Core.Common.EFCore
 {
     public class EFContext: DbContext,IEFContext
     {
+        #region 实体
+        public DbSet<SystemAction> SystemAction { get; set; }
+        public DbSet<SystemFunctionPrivilege> SystemFunctionPrivilege { get; set; }
+        public DbSet<SystemGroup> SystemGroup { get; set; }
+        public DbSet<SystemMenu> SystemMeun { get; set; }
+        public DbSet<SystemModule> SystemModule { get; set; }
+        public DbSet<SystemRole> SystemRole { get; set; }
+        public DbSet<SystemUser> SystemUser { get; set; }
+        public DbSet<SystemUserGroup> SystemUserGroup { get; set; }
+        public DbSet<SystemUserRole> SystemUserRole { get; set; }
+        #endregion
         // 连接字符串key
         public string CSName { get; set; }
 
@@ -25,9 +37,9 @@ namespace Core.Common.EFCore
         /// </summary>
         public DBTypeEnum DbType { get; set; }
 
-        public EFContext()
+        public EFContext(IConfiguration configuration)
         {
-            CSName = "server=127.0.0.1;uid=sa;pwd=sasa;database=core"; //"default";
+            CSName = configuration.GetValue<string>("ConnectionString");//"Server=106.13.138.18;Database=Blog;User=root;Password=xiaoMaPrincess12;"; //"default";
         }
 
         /// <summary>
@@ -68,10 +80,10 @@ namespace Core.Common.EFCore
         /// </summary>
         /// <param name="allModules">所有模块</param>
         /// <returns>返回true即数据新建完成，进入初始化操作，返回false即数据库已经存在<</returns>
-        public async virtual Task<bool> DataInit(object allModules)
+        public bool DataInit(object allModules)
         {
             // 创建数据库
-            if (await Database.EnsureCreatedAsync())
+            if (Database.EnsureCreated())
             {
                 var moduleList = allModules as List<SystemModule>;
                 if (moduleList != null && moduleList.Count > 0)
@@ -83,44 +95,45 @@ namespace Core.Common.EFCore
                         Set<SystemModule>().Add(module);
                     }
                 }
-                var role = new SystemRole() { RoleCode = "001", RoleName = "超级管理员", CreateTime = DateTime.Now, Creator = "system" };
+                var role = new SystemRole() { RoleCode = "001", RoleName="超级管理员", CreateTime = DateTime.Now, Creator = "system" };
                 var user = new SystemUser()
                 {
                     ITCode = "admin",
                     IsValid = true,
                     Name = "超级管理员",
-                    Password =MD5Helper.GetMD5String("123456")
+                    Password =MD5Helper.GetMD5String("123456"),
+                    Email="xiaomaprincess@gmail.com"
                 };
                 var userroles = new SystemUserRole()
                 {
                     User = user,
                     Role = role
                 };
-                //var adminRole = role;
-                // 判断是否存在菜单
+                var adminRole = role;
+                //判断是否存在菜单
                 if (!this.Set<SystemMenu>().Any())
                 {
                     // 初始化系统菜单
                     var sysManagement = GetFolderMenu("系统管理", role, null);
                     // 用户菜单
-                    var userList = GetMenu(moduleList, "SystemUser", role, null, 1);
-                    var roleList = GetMenu(moduleList, "SystemRole", role, null, 2);
-                    var groupList = GetMenu(moduleList, "SystemGroup", role, null, 3);
-                    var menuList = GetMenu(moduleList, "SystemMenu", role, null, 4);
-                    sysManagement.ChildrenList.AddRange(new SystemMenu[] { userList, roleList, groupList, menuList });
+                    //var userList = GetMenu(moduleList, "SystemUser", role, null, 1);
+                    //var roleList = GetMenu(moduleList, "SystemRole", role, null, 2);
+                    //var groupList = GetMenu(moduleList, "SystemGroup", role, null, 3);
+                    //var menuList = GetMenu(moduleList, "SystemMenu", role, null, 4);
+                    //sysManagement.ChildrenList.AddRange(new SystemMenu[] { userList, roleList, groupList, menuList });
                 }
                 Set<SystemUser>().Add(user);
                 Set<SystemRole>().Add(role);
                 Set<SystemUserRole>().Add(userroles);
-                await SaveChangesAsync();
+                SaveChangesAsync();
                 return true;
             }
             return false;
         }
 
-        //public DbSet<T> Set<T>() where T : class
+        //public DbSet<T> Set<T>() where T : BaseModel
         //{
-        //    throw new NotImplementedException();
+        //   return this.Set<T>();
         //}
 
         /// <summary>
@@ -341,6 +354,19 @@ namespace Core.Common.EFCore
         /// <returns></returns>
         private SystemMenu GetMenu(List<SystemModule> moduleList, string controllerName, SystemRole role, SystemUser user, int displayOrder)
         {
+            var obj = moduleList.Where(x => x.ClassName == controllerName).FirstOrDefault();
+            SystemMenu menu = new SystemMenu();
+            menu.Url = "/" + menu.ClassName;
+            menu.ModuleName = menu.ModuleName;
+            menu.PageName = menu.ModuleName;
+            menu.ActionName = "主页面";
+            menu.ClassName = menu.ModuleName;
+            menu.MethodName = null;
+            menu.ShowOnMenu = true;
+            menu.DisplayOrder = displayOrder;
+            return menu;
+            #region 暂时没用
+            /*
             var actions = moduleList.Where(x => x.ClassName == controllerName && x.IsApi == true).SelectMany(x => x.Actions).ToList();
             var menu = GetMenuFromAction(actions[0], true, role, user, displayOrder);
             if (menu != null)
@@ -361,7 +387,9 @@ namespace Core.Common.EFCore
                 }
             }
             return menu;
-            ;
+            */
+            #endregion
+
         }
 
         /// <summary>
