@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Core.Msi.Models;
 using Core.Common.EFCore;
 using Core.Model.Models;
+using Core.Msi.Common;
 
 namespace Core.Msi.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IEFContext _eFContext;
-        private readonly EFContext _eF;
         public HomeController(IEFContext eFContext)
         {
             _eFContext = eFContext;
@@ -21,9 +21,16 @@ namespace Core.Msi.Controllers
         public IActionResult Index()
         {
             var obj= _eFContext.Set<SystemUser>().FirstOrDefault();
+            var msg=  UserHelper.GetUserInfo();
             if (obj != null)
             {
                 ViewBag.User = obj.Name;
+                if (msg != null)
+                {
+                    ViewBag.Name = msg.Name;
+                    ViewBag.ID = msg.ID;
+                }
+
             }
             return View();
         }

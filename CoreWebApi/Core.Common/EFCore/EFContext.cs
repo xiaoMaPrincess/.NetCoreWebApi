@@ -401,48 +401,48 @@ namespace Core.Common.EFCore
         /// <param name="user"></param>
         /// <param name="displayOrder"></param>
         /// <returns></returns>
-        private SystemMenu GetMenuFromAction(SystemAction act, bool isMainLink, SystemRole role, SystemUser user, int displayOrder = 1)
-        {
-            if (act == null)
-            {
-                return null;
-            }
-            SystemMenu menu = new SystemMenu
-            {
-                ClassName = act.Module.ClassName,
-                MethodName = act.MethodName,
-                Url = act.Url,
-                PrivilegeList = new List<SystemFunctionPrivilege>(),
-                ShowOnMenu = isMainLink,
-                FolderOnly = false,
-                ChildrenList = new List<SystemMenu>(),
-                IsPublic = false,
-                IsInside = true,
-                DisplayOrder = displayOrder,
-                CreateTime = DateTime.Now
-            };
-            if (isMainLink)
-            {
-                menu.ModuleName = act.Module.ModuleName;
-                menu.PageName = act.Module.ModuleName;
-                menu.ActionName = act.ActionName;
-            }
-            else
-            {
-                menu.PageName = act.ActionName;
-                menu.ModuleName = act.Module.ModuleName;
-                menu.ActionName = act.ActionName;
-            }
-            if (role != null)
-            {
-                menu.PrivilegeList.Add(new SystemFunctionPrivilege { RoleID = role.ID, Allowed = true });
-            }
-            if (user != null)
-            {
-                menu.PrivilegeList.Add(new SystemFunctionPrivilege { UserID = user.ID, Allowed = true });
-            }
-            return menu;
+        //private SystemMenu GetMenuFromAction(SystemAction act, bool isMainLink, SystemRole role, SystemUser user, int displayOrder = 1)
+        //{
+        //    if (act == null)
+        //    {
+        //        return null;
+        //    }
+        //    SystemMenu menu = new SystemMenu
+        //    {
+        //        ClassName = act.Module.ClassName,
+        //        MethodName = act.MethodName,
+        //        Url = act.Url,
+        //        PrivilegeList = new List<SystemFunctionPrivilege>(),
+        //        ShowOnMenu = isMainLink,
+        //        FolderOnly = false,
+        //        ChildrenList = new List<SystemMenu>(),
+        //        IsPublic = false,
+        //        IsInside = true,
+        //        DisplayOrder = displayOrder,
+        //        CreateTime = DateTime.Now
+        //    };
+        //    if (isMainLink)
+        //    {
+        //        menu.ModuleName = act.Module.ModuleName;
+        //        menu.PageName = act.Module.ModuleName;
+        //        menu.ActionName = act.ActionName;
+        //    }
+        //    else
+        //    {
+        //        menu.PageName = act.ActionName;
+        //        menu.ModuleName = act.Module.ModuleName;
+        //        menu.ActionName = act.ActionName;
+        //    }
+        //    if (role != null)
+        //    {
+        //        menu.PrivilegeList.Add(new SystemFunctionPrivilege { RoleID = role.ID, Allowed = true });
+        //    }
+        //    if (user != null)
+        //    {
+        //        menu.PrivilegeList.Add(new SystemFunctionPrivilege { UserID = user.ID, Allowed = true });
+        //    }
+        //    return menu;
 
-        }
+        //}
     }
 }

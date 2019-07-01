@@ -9,6 +9,8 @@ using Autofac.Extensions.DependencyInjection;
 using Core.Common;
 using Core.Common.EFCore;
 using Core.Common.MemoryCache;
+using Core.Model;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,15 +39,30 @@ namespace Core.Msi
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // 添加 Cook 服务
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             // 启用缓存服务
             services.AddMemoryCache();
 
             // 注入自定义缓存接口
             services.AddScoped<ICache, Cache>();
+
+            // 启用session
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromSeconds(30);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = false;
+            });
+            // UserHleper
+            //services.AddScoped<IUserHelper, UserHelper>();
 
             // 注入EF
             services.AddScoped<IEFContext, EFContext>();
@@ -54,20 +71,36 @@ namespace Core.Msi
     options.UseMySql(Configuration.GetConnectionString("ConnectionString")));
             services.AddMemoryCache();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+            #region AutoFac
             // Add Autofac
             var containerBuilder = new ContainerBuilder();
             // 获取项目路径
             var pathBase = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
-            var servicesDllFile = Path.Combine(pathBase, "Core.Services.dll");// 获取注入项目绝对路径
+            // 获取dll文件的绝对路径
+            var servicesDllFile = Path.Combine(pathBase, "Core.Services.dll");
+            var repositoryDllFile = Path.Combine(pathBase, "Core.Repository.dll");
+
             // 加载程序集，这里为实现层
-            //var assemblysServices = Assembly.Load("Core.Services");
-            var assemblysServices = Assembly.LoadFile(servicesDllFile);// 使用加载文件的方法加载程序集
+            var assemblyRepository = Assembly.LoadFile(repositoryDllFile);
+            var assemblysServices = Assembly.LoadFile(servicesDllFile);
+
             // 依赖注入接口
             var baseType = typeof(IDependencyMsi);
 
+            // 批量注入
             containerBuilder.RegisterAssemblyTypes(assemblysServices).Where(x => baseType.IsAssignableFrom(x) && x != baseType).AsImplementedInterfaces().InstancePerLifetimeScope();
+            containerBuilder.RegisterAssemblyTypes(assemblyRepository).Where(x => baseType.IsAssignableFrom(x) && x != baseType).AsImplementedInterfaces().InstancePerLifetimeScope();
+            //// 批量注入
+            //containerBuilder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces();
+
+            //containerBuilder.RegisterAssemblyTypes(assemblyRepository).AsImplementedInterfaces();
+
             containerBuilder.Populate(services);
             var container = containerBuilder.Build();
+            #endregion
+
             return new AutofacServiceProvider(container);
         }
 
@@ -86,7 +119,10 @@ namespace Core.Msi
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            //app.UseSession();
+            // cookie中间件
             app.UseCookiePolicy();
+            // 验证中间件
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
@@ -94,6 +130,7 @@ namespace Core.Msi
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+           Core.Common.Helper.HttpContextHelper.ServiceProvider = app.ApplicationServices;
         }
     }
 }

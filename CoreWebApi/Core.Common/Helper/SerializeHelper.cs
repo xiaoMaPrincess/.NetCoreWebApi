@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Core.Common.Helper
 {
+    /// <summary>
+    /// 序列化帮助类
+    /// </summary>
     public class SerializeHelper
     {
 

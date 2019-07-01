@@ -5,7 +5,7 @@ using System.Text;
 namespace Core.Model
 {
     /// <summary>
-    /// 通用返回信息类
+    /// 通用返回信息类（API）
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class MessageModel<T>

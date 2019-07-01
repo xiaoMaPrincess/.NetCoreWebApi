@@ -22,11 +22,14 @@ namespace Core.Model.Models
         [Display(Name = "方法")]
         public string MethodName { get; set; }
 
-        [Display(Name = "模块")]
-        public Guid? ModuleId { get; set; }
+        [Display(Name = "菜单")]
+        public Guid? MeunID { get; set; }
+        public SystemMenu Meun { get; set; }
+        //[Display(Name = "模块")]
+        //public Guid? ModuleId { get; set; }
 
-        [Display(Name = "模块")]
-        public SystemModule Module { get; set; }
+        //[Display(Name = "模块")]
+        //public SystemModule Module { get; set; }
 
         [Display(Name = "参数")]
         [StringLength(50, ErrorMessage = "{0}最多输入{1}个字符")]
@@ -36,21 +39,6 @@ namespace Core.Model.Models
         public bool IgnorePrivillege { get; set; }
         [NotMapped]
         private string _url;
-        [NotMapped]
-        public string Url
-        {
-            get
-            {
-                if (_url == null)
-                {
-                    _url = "/" + this.Module.ClassName + "/" + this.MethodName;
-                }
-                return _url;
-            }
-            set
-            {
-                _url = value;
-            }
-        }
+       
     }
 }

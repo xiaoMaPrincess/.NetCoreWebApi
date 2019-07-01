@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>登录</title>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/layui/layui.js"></script>
+    <style>
+        .box {
+            height: 362px;
+            width: 400px;
+            border: 1px solid #a0b1c4;
+            border-radius: 5px;
+            margin: 0 auto;
+            margin-top: 10%;
+            background-color: aliceblue
+        }
+
+        .top {
+            height: 56px;
+            border-bottom: 1px solid #a0b1c4;
+            text-align: center;
+            line-height: 56px;
+        }
+
+        body {
+            background-color: khaki
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <form class="layui-form" action="">
+            <!-- 登录框 开始 -->
+            <div class="box">
+                <div class="top">
+                    BloudBlog管理平台
+                </div>
+                <div class="layui-form-item" style="margin-top:30px">
+                    <label class="layui-form-label">账号</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="itcode" required lay-verify="itcode" placeholder="请输入账号" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div>
+                    <label id="msg" style="margin-left:113px;color:orangered;font-weight:bold"></label>
+                </div>
+                <div style="width: 216px; margin-left:75px;margin-top:20px">
+                    <button class="layui-btn layui-btn-fluid layui-btn-radius" lay-submit="" lay-filter="login">登录</button>
+                </div>
+            </div>
+        </form>
+        <!-- 登录框 结束 -->
+    </section>
+    <script type="text/javascript">
+        layui.use(['form', 'layedit', 'laydate'], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate;
+
+            //自定义验证规则
+            form.verify({
+                itcode: function (value) {
+                    if (value.length == 0) {
+                        return '请输入账号';
+                    }
+                }
+                , password: function (value) {
+                    if (value.length == 0) {
+                        return '请输入密码';
+                    }
+                }
+            });
+            form.render();
+            //监听提交
+            form.on('submit(login)', function (data) {
+                var msg = {
+                    itCode: data.field.itcode,
+                    password: data.field.password
+                }
+                $.ajax({
+                    url: "/Login/Login", method: "post", async: false, data: msg, success: function (data) {
+                        if (data.isSuccess) {
+                            window.location.href = "/home/index";
+                        }
+                        else {
+                            $("#msg").text(data.message)
+                        }
+                    }
+                });
+                return false;
+            })
+        });
+    </script>
+
+</body>
+</html>
