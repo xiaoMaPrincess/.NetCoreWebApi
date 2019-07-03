@@ -43,5 +43,20 @@ namespace Core.Msi.Controllers
             }
             return Json(result);
         }
+
+        /// <summary>
+        /// 登出
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult Logout(Guid id)
+        {
+            if (id==null)
+            {
+                return BadRequest();
+            }
+            UserHelper.ClearUserInfo();
+            return RedirectToAction("Login", "Login");
+
+        }
     }
 }

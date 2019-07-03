@@ -8,30 +8,27 @@ using Core.Msi.Models;
 using Core.Common.EFCore;
 using Core.Model.Models;
 using Core.Msi.Common;
+using Core.Msi.Filter;
 
 namespace Core.Msi.Controllers
 {
+    [ValidateUserFilter]
     public class HomeController : Controller
     {
-        private readonly IEFContext _eFContext;
-        public HomeController(IEFContext eFContext)
-        {
-            _eFContext = eFContext;
-        }
+       
         public IActionResult Index()
         {
-            var obj= _eFContext.Set<SystemUser>().FirstOrDefault();
-            var msg=  UserHelper.GetUserInfo();
-            if (obj != null)
-            {
-                ViewBag.User = obj.Name;
-                if (msg != null)
-                {
-                    ViewBag.Name = msg.Name;
-                    ViewBag.ID = msg.ID;
-                }
+            var user = UserHelper.GetUserInfo();
+            return View(user);
+        }
 
-            }
+        public IActionResult Header()
+        {
+            return View();
+        }
+
+        public IActionResult Menu()
+        {
             return View();
         }
 
