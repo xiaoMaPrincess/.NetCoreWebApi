@@ -58,7 +58,7 @@ namespace Core.Msi.Common
             }
             UserInfoVM user = new UserInfoVM();
             user.ID = new Guid(HttpContextHelper.Current.User.Identity.Name);
-            user.Name = HttpContextHelper.Current.User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value;
+            user.Name = HttpContextHelper.Current.User.Claims.FirstOrDefault(c => c.Type == "UserName")?.Value;
             return user;
         }
     }

@@ -19,19 +19,35 @@ namespace Core.Msi.Controllers
         public IActionResult Index()
         {
             var user = UserHelper.GetUserInfo();
+            
             return View(user);
         }
 
+        /// <summary>
+        /// 主页面头部
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Header()
         {
             return View();
         }
-
+        /// <summary>
+        /// 左侧菜单
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Menu()
         {
             return View();
         }
 
+        /// <summary>
+        /// 首页图表展示
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ECharts()
+        {
+            return View();
+        }
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

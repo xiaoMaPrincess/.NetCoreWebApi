@@ -29,4 +29,9 @@ namespace Core.Model
         Mysql,
         SqlServer,
     }
+    public enum PrivilegeTypeEnum
+    {
+        菜单=1,
+        按钮=2
+    }
 }

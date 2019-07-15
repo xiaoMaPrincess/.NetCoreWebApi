@@ -25,20 +25,18 @@ namespace Core.Model.Models
         [Display(Name = "菜单")]
         public Guid? MeunID { get; set; }
         public SystemMenu Meun { get; set; }
-        //[Display(Name = "模块")]
-        //public Guid? ModuleId { get; set; }
-
-        //[Display(Name = "模块")]
-        //public SystemModule Module { get; set; }
-
         [Display(Name = "参数")]
-        [StringLength(50, ErrorMessage = "{0}最多输入{1}个字符")]
+        [StringLength(200, ErrorMessage = "{0}最多输入{1}个字符")]
         public string Parameter { get; set; }
-
-        [NotMapped]
-        public bool IgnorePrivillege { get; set; }
-        [NotMapped]
-        private string _url;
+        [Display(Name = "URL")]
+        [StringLength(200, ErrorMessage = "{0}最多输入{1}个字符")]
+        public string Url { get; set; }
+        [Display(Name = "样式")]
+        [StringLength(200, ErrorMessage = "{0}最多输入{1}个字符")]
+        public string Style { get; set; }
+        [Display(Name = "脚本")]
+        [StringLength(200, ErrorMessage = "{0}最多输入{1}个字符")]
+        public string Script { get; set; }
        
     }
 }

@@ -20,7 +20,7 @@ namespace Core.Common.EFCore
     {
         #region 实体
         public DbSet<SystemAction> SystemAction { get; set; }
-        public DbSet<SystemFunctionPrivilege> SystemFunctionPrivilege { get; set; }
+        public DbSet<SystemPrivilege> SystemFunctionPrivilege { get; set; }
         public DbSet<SystemGroup> SystemGroup { get; set; }
         public DbSet<SystemMenu> SystemMeun { get; set; }
         public DbSet<SystemModule> SystemModule { get; set; }
@@ -114,7 +114,7 @@ namespace Core.Common.EFCore
                 if (!this.Set<SystemMenu>().Any())
                 {
                     // 初始化系统菜单
-                    var sysManagement = GetFolderMenu("系统管理", role, null);
+                    //var sysManagement = GetFolderMenu("系统管理", role, null);
                     // 用户菜单
                     //var userList = GetMenu(moduleList, "SystemUser", role, null, 1);
                     //var roleList = GetMenu(moduleList, "SystemRole", role, null, 2);
@@ -317,80 +317,80 @@ namespace Core.Common.EFCore
         /// <param name="isShow">是否显示</param>
         /// <param name="isInherite">是否可继承</param>
         /// <returns></returns>
-        private SystemMenu GetFolderMenu(string FolderName, SystemRole role, SystemUser user, bool isShow = true, bool isInherite = false)
-        {
-            SystemMenu meun = new SystemMenu()
-            {
-                PageName = FolderName,
-                ChildrenList = new List<SystemMenu>(),
-                PrivilegeList = new List<SystemFunctionPrivilege>(),
-                ShowOnMenu = isShow,
-                IsInside = true,
-                IsPublic = false,
-                CreateTime = DateTime.Now,
-                DisplayOrder = 1
-            };
-            if (role != null)
-            {
-                //  ???
-                meun.PrivilegeList.Add(new SystemFunctionPrivilege { RoleID = role.ID, Allowed = true });
-            }
-            if (user != null)
-            {
-                meun.PrivilegeList.Add(new SystemFunctionPrivilege { UserID = user.ID, Allowed = true });
-            }
-            return meun;
-        }
+        //private SystemMenu GetFolderMenu(string FolderName, SystemRole role, SystemUser user, bool isShow = true, bool isInherite = false)
+        //{
+        //    SystemMenu meun = new SystemMenu()
+        //    {
+        //        PageName = FolderName,
+        //        ChildrenList = new List<SystemMenu>(),
+        //        PrivilegeList = new List<SystemPrivilege>(),
+        //        ShowOnMenu = isShow,
+        //        IsInside = true,
+        //        IsPublic = false,
+        //        CreateTime = DateTime.Now,
+        //        DisplayOrder = 1
+        //    };
+        //    if (role != null)
+        //    {
+        //        //  ???
+        //        meun.PrivilegeList.Add(new SystemPrivilege { RoleID = role.ID, Allowed = true });
+        //    }
+        //    if (user != null)
+        //    {
+        //        meun.PrivilegeList.Add(new SystemPrivilege { UserID = user.ID, Allowed = true });
+        //    }
+        //    return meun;
+        //}
 
-        /// <summary>
-        /// 获取子级菜单
-        /// </summary>
-        /// <param name="moduleList">模块</param>
-        /// <param name="controllerName">控制器</param>
-        /// <param name="actionName">方法</param>
-        /// <param name="role">角色</param>
-        /// <param name="user">用户</param>
-        /// <param name="displayOrder">显示顺序</param>
-        /// <returns></returns>
-        private SystemMenu GetMenu(List<SystemModule> moduleList, string controllerName, SystemRole role, SystemUser user, int displayOrder)
-        {
-            var obj = moduleList.Where(x => x.ClassName == controllerName).FirstOrDefault();
-            SystemMenu menu = new SystemMenu();
-            menu.Url = "/" + menu.ClassName;
-            menu.ModuleName = menu.ModuleName;
-            menu.PageName = menu.ModuleName;
-            menu.ActionName = "主页面";
-            menu.ClassName = menu.ModuleName;
-            menu.MethodName = null;
-            menu.ShowOnMenu = true;
-            menu.DisplayOrder = displayOrder;
-            return menu;
-            #region 暂时没用
-            /*
-            var actions = moduleList.Where(x => x.ClassName == controllerName && x.IsApi == true).SelectMany(x => x.Actions).ToList();
-            var menu = GetMenuFromAction(actions[0], true, role, user, displayOrder);
-            if (menu != null)
-            {
-                menu.Url = "/" + actions[0].Module.ClassName.ToLower();
-                menu.ModuleName = actions[0].Module.ModuleName;
-                menu.PageName = menu.ModuleName;
-                menu.ActionName = "主页面";
-                menu.ClassName = actions[0].Module.ClassName;
-                menu.MethodName = null;
-                for (int i = 0; i < actions.Count; i++)
-                {
-                    if (actions[i] != null)
-                    {
-                        // 获取子集
-                        menu.ChildrenList.Add(GetMenuFromAction(actions[i], false, role, user, (i + 1)));
-                    }
-                }
-            }
-            return menu;
-            */
-            #endregion
+        ///// <summary>
+        ///// 获取子级菜单
+        ///// </summary>
+        ///// <param name="moduleList">模块</param>
+        ///// <param name="controllerName">控制器</param>
+        ///// <param name="actionName">方法</param>
+        ///// <param name="role">角色</param>
+        ///// <param name="user">用户</param>
+        ///// <param name="displayOrder">显示顺序</param>
+        ///// <returns></returns>
+        //private SystemMenu GetMenu(List<SystemModule> moduleList, string controllerName, SystemRole role, SystemUser user, int displayOrder)
+        //{
+        //    var obj = moduleList.Where(x => x.ClassName == controllerName).FirstOrDefault();
+        //    SystemMenu menu = new SystemMenu();
+        //    menu.Url = "/" + menu.ClassName;
+        //    menu.ModuleName = menu.ModuleName;
+        //    menu.PageName = menu.ModuleName;
+        //    menu.ActionName = "主页面";
+        //    menu.ClassName = menu.ModuleName;
+        //    menu.MethodName = null;
+        //    menu.ShowOnMenu = true;
+        //    menu.DisplayOrder = displayOrder;
+        //    return menu;
+        //    #region 暂时没用
+        //    /*
+        //    var actions = moduleList.Where(x => x.ClassName == controllerName && x.IsApi == true).SelectMany(x => x.Actions).ToList();
+        //    var menu = GetMenuFromAction(actions[0], true, role, user, displayOrder);
+        //    if (menu != null)
+        //    {
+        //        menu.Url = "/" + actions[0].Module.ClassName.ToLower();
+        //        menu.ModuleName = actions[0].Module.ModuleName;
+        //        menu.PageName = menu.ModuleName;
+        //        menu.ActionName = "主页面";
+        //        menu.ClassName = actions[0].Module.ClassName;
+        //        menu.MethodName = null;
+        //        for (int i = 0; i < actions.Count; i++)
+        //        {
+        //            if (actions[i] != null)
+        //            {
+        //                // 获取子集
+        //                menu.ChildrenList.Add(GetMenuFromAction(actions[i], false, role, user, (i + 1)));
+        //            }
+        //        }
+        //    }
+        //    return menu;
+        //    */
+        //    #endregion
 
-        }
+        //}
 
         /// <summary>
         /// 获取菜单
