@@ -13,6 +13,14 @@
     <environment exclude="Development">
     </environment>
     <script>
+        function getdata() {
+            console.log(11)
+            $.ajax({
+                url: "/SystemUser/Index", data: {}, success: function (data) {
+                    $("#DONOTUSE_MAINPANEL").html(data)
+                }
+            });
+        }
         //$(function () {
         //    $.ajax({
         //        url: "/Home/ECharts", data: {}, success: function (data) {

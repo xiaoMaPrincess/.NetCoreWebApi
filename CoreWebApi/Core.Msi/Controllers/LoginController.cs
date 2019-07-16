@@ -55,7 +55,7 @@ namespace Core.Msi.Controllers
                 return BadRequest();
             }
             UserHelper.ClearUserInfo();
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Index", "Login");
 
         }
     }

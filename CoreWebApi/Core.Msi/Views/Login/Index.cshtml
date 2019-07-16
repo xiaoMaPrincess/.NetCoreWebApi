@@ -11,57 +11,49 @@
     <title>登录</title>
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/css/public.css" rel="stylesheet" />
     <script src="~/layui/layui.js"></script>
-    <style>
-        .box {
-            height: 362px;
-            width: 400px;
-            border: 1px solid #a0b1c4;
-            border-radius: 5px;
-            margin: 0 auto;
-            margin-top: 10%;
-            background-color: aliceblue
-        }
-
-        .top {
-            height: 56px;
-            border-bottom: 1px solid #a0b1c4;
-            text-align: center;
-            line-height: 56px;
-        }
-
-        body {
-            background-color: khaki
-        }
-    </style>
 </head>
-<body>
+<body class="loginBody">
     <section>
         <form class="layui-form" action="">
-            <!-- 登录框 开始 -->
-            <div class="box">
-                <div class="top">
-                    CloudBlog管理平台
-                </div>
-                <div class="layui-form-item" style="margin-top:30px">
-                    <label class="layui-form-label">账号</label>
-                    <div class="layui-input-inline">
-                        <input type="text" name="itcode" required lay-verify="itcode" placeholder="请输入账号" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">密码</label>
-                    <div class="layui-input-inline">
-                        <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div>
-                    <label id="msg" style="margin-left:113px;color:orangered;font-weight:bold"></label>
-                </div>
-                <div style="width: 216px; margin-left:75px;margin-top:20px">
-                    <button class="layui-btn layui-btn-fluid layui-btn-radius" lay-submit="" lay-filter="login">登录</button>
-                </div>
+            <div class="login_face"><img src="~/images/cloud.jpg" class="userAvatar"></div>
+            <div class="layui-form-item input-item">
+                <label for="userName">用户名</label>
+                <input type="text" placeholder="请输入用户名" autocomplete="off" name="itcode" required lay-verify="itcode" id="userName" class="layui-input">
             </div>
+            <div class="layui-form-item input-item">
+                <label for="password">密码</label>
+                <input type="password" placeholder="请输入密码" autocomplete="off" id="password" name="password" class="layui-input" lay-verify="password">
+            </div>
+            <div class="layui-form-item input-item">
+                <label id="msg" style="color:orangered;font-weight:bold;"></label>
+            </div>
+            <div class="layui-form-item" style="top:40px">
+                <button class="layui-btn layui-block" lay-filter="login" lay-submit>登录</button>
+            </div>
+            <!-- 登录框 开始 -->
+            @*<div class="layui-form-item">
+            CloudBlog管理平台
+        </div>
+        <div class="layui-form-item" style="margin-top:30px">
+            <label class="layui-form-label">账号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="itcode" required lay-verify="itcode" placeholder="请输入账号" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div>
+            <label id="msg" style="margin-left:113px;color:orangered;font-weight:bold"></label>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn layui-block" lay-submit="" lay-filter="login">登录</button>
+        </div>*@
         </form>
         <!-- 登录框 结束 -->
     </section>
@@ -103,6 +95,23 @@
                     }
                 });
                 return false;
+            })
+
+            //表单输入效果
+            $(".loginBody .input-item").click(function (e) {
+                e.stopPropagation();
+                $(this).addClass("layui-input-focus").find(".layui-input").focus();
+            })
+            $(".loginBody .layui-form-item .layui-input").focus(function () {
+                $(this).parent().addClass("layui-input-focus");
+            })
+            $(".loginBody .layui-form-item .layui-input").blur(function () {
+                $(this).parent().removeClass("layui-input-focus");
+                if ($(this).val() != '') {
+                    $(this).parent().addClass("layui-input-active");
+                } else {
+                    $(this).parent().removeClass("layui-input-active");
+                }
             })
         });
     </script>
