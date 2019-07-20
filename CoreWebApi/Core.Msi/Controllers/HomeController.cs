@@ -9,17 +9,23 @@ using Core.Common.EFCore;
 using Core.Model.Models;
 using Core.Msi.Common;
 using Core.Msi.Filter;
+using Core.IServices.Mis;
 
 namespace Core.Msi.Controllers
 {
     [ValidateUserFilter]
     public class HomeController : Controller
     {
-       
-        public IActionResult Index()
+
+        private readonly IHomeServices _homeServices;
+        public HomeController(IHomeServices homeServices)
+        {
+            _homeServices = homeServices;
+        }
+        public async Task<IActionResult> Index()
         {
             var user = UserHelper.GetUserInfo();
-            
+            user.MenuList=await _homeServices.GetMenuList(user.ID);
             return View(user);
         }
 
@@ -67,10 +73,14 @@ namespace Core.Msi.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Route("/Home/Error/{statusCode}")]
+        public IActionResult Error(int statusCode)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (statusCode==404)
+            {
+                return View("_404");
+            }
+            return View();
         }
     }
 }

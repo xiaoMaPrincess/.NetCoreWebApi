@@ -116,6 +116,8 @@ namespace Core.Msi
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            // 状态码中间件
+            app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

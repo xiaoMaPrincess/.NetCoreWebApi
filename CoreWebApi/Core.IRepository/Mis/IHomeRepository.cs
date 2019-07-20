@@ -1,5 +1,6 @@
 ﻿using Core.Model;
 using Core.Model.Models;
+using Core.Model.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,6 +13,6 @@ namespace Core.IRepository.Mis
         /// <summary>
         /// 获取菜单列表
         /// </summary>
-        Task<List<SystemMenu>> GetMenuList(Guid UserID);
+        Task<List<MenuInfo>> GetMenuList(Guid userID);
     }
 }

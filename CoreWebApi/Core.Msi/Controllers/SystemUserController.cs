@@ -18,6 +18,12 @@ namespace Core.Msi.Controllers
         {
             return PartialView();
         }
-        
+        [HttpGet]
+        public async Task<IActionResult> GetUserList(int pageIndex = 1, int pageSize = 10)
+        {
+            var data = await _userServices.GetUserList();
+            return Json(data);
+        }
+
     }
 }

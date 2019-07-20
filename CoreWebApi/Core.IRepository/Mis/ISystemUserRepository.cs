@@ -13,6 +13,6 @@ namespace Core.IRepository.Mis
         /// 获取用户列表
         /// </summary>
         /// <returns></returns>
-        Task<PageModel<UserInfoVM>> GetUserList(string userName,string itCode,bool? IsValid, int pageIndex=1,int pageSize=10 );
+        Task<PageModel<UserInfoVM>> GetUserList(int pageIndex=1,int pageSize=10 );
     }
 }

@@ -21,7 +21,11 @@ namespace Core.Model
         /// <summary>
         /// 总条数
         /// </summary>
-        public int TotalCount { get; set; }
+        public int Count { get; set; }
+        /// <summary>
+        /// 状态码
+        /// </summary>
+        public int Code { get; set; }
         /// <summary>
         /// 总页数
         /// </summary>
@@ -30,15 +34,15 @@ namespace Core.Model
             get
             {
                 if (PageSize > 0)
-                    return TotalCount % PageSize == 0 ? TotalCount / PageSize : (TotalCount / PageSize) + 1;
+                    return Count % PageSize == 0 ? Count / PageSize : (Count / PageSize) + 1;
                 else
-                    return TotalCount;
+                    return Count;
             }
 
         }
         /// <summary>
         /// 数据集合
         /// </summary>
-        public List<T> DataList { get; set; }
+        public List<T> Data { get; set; }
     }
 }

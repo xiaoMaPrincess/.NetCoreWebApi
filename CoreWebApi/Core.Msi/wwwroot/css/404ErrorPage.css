@@ -1,0 +1,33 @@
+/* 公共类 开始 */
+a {
+    text-decoration: none;
+}
+body {
+    background-color: #fff;
+}
+/* 公共类 结束 */
+section .Subject-Background-Picture {
+    /*background: url(../images/404-Error-Page/Subject-Background-Picture.jpg) no-repeat;*/
+    background: url('../images/background_404.jpg') no-repeat;
+    width: 700px;
+    height: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+section .Subject-Background-Picture a {
+    position: absolute;
+    font-size: 28px;
+    font-weight: 700;
+    color: #000;
+}
+section .Subject-Background-Picture a:first-child {
+    top: 281px;
+    left: 50px;
+}
+section .Subject-Background-Picture a:last-child {
+    top: 317px;
+    right: 47px;
+}
+section .Subject-Background-Picture a:hover {
+    color: rgb(230, 84, 47);
+}

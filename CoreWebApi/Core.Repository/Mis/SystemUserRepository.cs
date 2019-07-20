@@ -19,7 +19,7 @@ namespace Core.Repository.Mis
         {
             _context = context;
         }
-        public async Task<PageModel<UserInfoVM>> GetUserList(string userName, string itCode, bool? IsValid, int pageIndex = 1, int pageSize = 10)
+        public async Task<PageModel<UserInfoVM>> GetUserList( int pageIndex = 1, int pageSize = 10)
         {
 
             var query = from a in _context.Set<SystemUser>()
@@ -46,25 +46,14 @@ namespace Core.Repository.Mis
             {
                 x.RoleName = userRole.Where(a => a.ID == x.ID).Select(b => b.RoleName).ToList();
             });
-            if (!string.IsNullOrEmpty(itCode))
-            {
-                query= query.Where(x => x.ITCode.Contains(itCode));
-            }
-            if (!string.IsNullOrEmpty(userName))
-            {
-                query = query.Where(x => x.ITCode.Contains(userName));
-            }
-            if (IsValid != null)
-            {
-                query = query.Where(x => x.IsValid==IsValid);
-            }
             var list = await query.Skip(pageIndex * pageSize).Take(pageSize).ToListAsync();
             PageModel<UserInfoVM> data = new PageModel<UserInfoVM>()
             {
-                DataList = list,
+                Data = list,
                 PageIndex = pageIndex,
                 PageSize = pageSize,
-                TotalCount = list.Count
+                Count = list.Count,
+                Code=0
             };
             return data;
         }

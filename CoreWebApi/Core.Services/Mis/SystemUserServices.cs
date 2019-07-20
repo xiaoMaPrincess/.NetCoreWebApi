@@ -20,9 +20,9 @@ namespace Core.Services.Mis
         {
             _userRepository = userRepository;
         }
-        public async Task<PageModel<UserInfoVM>> GetUserList(string userName, string itCode, bool? IsValid, int pageIndex = 1, int pageSize = 10)
+        public async Task<PageModel<UserInfoVM>> GetUserList(int pageIndex = 1, int pageSize = 10)
         {
-           return await _userRepository.GetUserList(userName, itCode, IsValid, pageIndex, pageSize);
+           return await _userRepository.GetUserList(pageIndex, pageSize);
         }
     }
 }
