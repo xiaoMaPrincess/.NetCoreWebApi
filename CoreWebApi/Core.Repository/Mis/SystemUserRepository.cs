@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Core.Model;
+using Core.Model.SearchModels;
 
 namespace Core.Repository.Mis
 {
@@ -19,7 +20,7 @@ namespace Core.Repository.Mis
         {
             _context = context;
         }
-        public async Task<PageModel<UserInfoVM>> GetUserList( int pageIndex = 1, int pageSize = 10)
+        public async Task<TableModel<UserInfoVM>> GetUserList(UserSearch search)
         {
 
             var query = from a in _context.Set<SystemUser>()
@@ -31,7 +32,7 @@ namespace Core.Repository.Mis
                             Email = a.Email,
                             Sex = a.Sex,
                             IsValid = a.IsValid,
-                            CreateTime=a.CreateTime
+                            CreateTime = a.CreateTime
                         };
             var userRole = from a in _context.Set<SystemUserRole>()
                            join b in _context.Set<SystemRole>()
@@ -44,15 +45,16 @@ namespace Core.Repository.Mis
 
             await query.ForEachAsync(x =>
             {
-                x.RoleName = userRole.Where(a => a.ID == x.ID).Select(b => b.RoleName).ToList();
+                if (userRole.Where(a => a.ID == x.ID).FirstOrDefault() != null)
+                {
+                    x.RoleName = userRole.Where(a => a.ID == x.ID).Select(a => a.RoleName).ToList();
+                }
             });
-            var list = await query.Skip(pageIndex * pageSize).Take(pageSize).ToListAsync();
-            PageModel<UserInfoVM> data = new PageModel<UserInfoVM>()
+            var list = await query.Skip((search.Page-1) * search.Limit).Take(search.Limit).ToListAsync();
+            TableModel<UserInfoVM> data = new TableModel<UserInfoVM>()
             {
                 Data = list,
-                PageIndex = pageIndex,
-                PageSize = pageSize,
-                Count = list.Count,
+                Count = query.Count(),
                 Code=0
             };
             return data;

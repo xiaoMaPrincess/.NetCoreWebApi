@@ -1,4 +1,5 @@
 ﻿using Core.Model;
+using Core.Model.SearchModels;
 using Core.Model.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,6 @@ namespace Core.IRepository.Mis
         /// 获取用户列表
         /// </summary>
         /// <returns></returns>
-        Task<PageModel<UserInfoVM>> GetUserList(int pageIndex=1,int pageSize=10 );
+        Task<TableModel<UserInfoVM>> GetUserList(UserSearch search);
     }
 }

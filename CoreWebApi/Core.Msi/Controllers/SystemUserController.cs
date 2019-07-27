@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.IServices.Mis;
+using Core.Model.SearchModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Core.Msi.Controllers
@@ -19,9 +20,9 @@ namespace Core.Msi.Controllers
             return PartialView();
         }
         [HttpGet]
-        public async Task<IActionResult> GetUserList(int pageIndex = 1, int pageSize = 10)
+        public async Task<IActionResult> GetUserList(UserSearch search)
         {
-            var data = await _userServices.GetUserList();
+            var data = await _userServices.GetUserList(search);
             return Json(data);
         }
 
