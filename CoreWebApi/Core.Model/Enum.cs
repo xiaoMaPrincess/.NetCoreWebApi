@@ -34,4 +34,12 @@ namespace Core.Model
         菜单=1,
         按钮=2
     }
+    /// <summary>
+    /// 按钮位置
+    /// </summary>
+    public enum ActionTypeEnum
+    {
+        行外=1,
+        行内=2
+    }
 }

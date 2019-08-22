@@ -37,6 +37,8 @@ namespace Core.Model.Models
         [Display(Name = "脚本")]
         [StringLength(200, ErrorMessage = "{0}最多输入{1}个字符")]
         public string Script { get; set; }
+        [Display(Name ="位置")]
+        public ActionTypeEnum ActionType { get; set; }
        
     }
 }

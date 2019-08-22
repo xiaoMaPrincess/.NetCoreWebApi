@@ -14,5 +14,12 @@ namespace Core.IRepository.Mis
         /// 获取菜单列表
         /// </summary>
         Task<List<MenuInfo>> GetMenuList(Guid userID);
+        /// <summary>
+        /// 根据用户与访问菜单获取对应的按钮
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="menuID"></param>
+        /// <returns></returns>
+        Task<List<SystemAction>> GetActionList(Guid userID, Guid menuID);
     }
 }

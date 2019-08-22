@@ -18,6 +18,11 @@ namespace Core.Repository.Mis
             _context = context;
         }
 
+        public Task<List<SystemAction>> GetActionList(Guid userID, Guid menuID)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// 根据用户ID获取对应的菜单列表
         /// </summary>

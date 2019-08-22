@@ -20,6 +20,11 @@ namespace Core.Repository.Mis
         {
             _context = context;
         }
+        /// <summary>
+        /// 用户列表
+        /// </summary>
+        /// <param name="search">搜索字段</param>
+        /// <returns></returns>
         public async Task<TableModel<UserInfoVM>> GetUserList(UserSearch search)
         {
 
@@ -43,6 +48,14 @@ namespace Core.Repository.Mis
                                RoleName = b.RoleName
                            };
 
+            if (!string.IsNullOrEmpty(search.ITCode))
+            {
+                query = query.Where(x => x.ITCode.Contains(search.ITCode));// search.ITCode.Contains(x.ITCode));
+            }
+            if (!string.IsNullOrEmpty(search.Name))
+            {
+                query = query.Where(x => x.ITCode.Contains(search.ITCode));
+            }
             await query.ForEachAsync(x =>
             {
                 if (userRole.Where(a => a.ID == x.ID).FirstOrDefault() != null)
@@ -50,7 +63,8 @@ namespace Core.Repository.Mis
                     x.RoleName = userRole.Where(a => a.ID == x.ID).Select(a => a.RoleName).ToList();
                 }
             });
-            var list = await query.Skip((search.Page-1) * search.Limit).Take(search.Limit).ToListAsync();
+            var list = await query.Skip((search.Page-1) * search.
+                Limit).Take(search.Limit).ToListAsync();
             TableModel<UserInfoVM> data = new TableModel<UserInfoVM>()
             {
                 Data = list,
